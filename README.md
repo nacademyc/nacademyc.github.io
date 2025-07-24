@@ -1,1 +1,0 @@
-# nacademyc.github.io
