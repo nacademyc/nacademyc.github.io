@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>National Academy of Computer</title>
+  <link rel="icon" href="/mnt/data/43217116-a325-4871-924a-1b303282b1ec.png" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(to right, #e3f2fd, #ffffff);
+    }
+
+    header {
+      background: #283593;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      color: #ffca28;
+      margin: 0;
+    }
+
+    nav {
+      background: #3949ab;
+      padding: 0.5rem;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 2rem;
+      display: none;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    .card {
+      background: #f1f8e9;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn {
+      background: #43a047;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #212121;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    input,
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="password"],
+    input[type="date"] {
+      padding: 5px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .dashboard {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .dashboard .card {
+      flex: 1 1 300px;
+    }
+
+    .qr-img {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+      margin-top: 10px;
+    }
+
+    .director-img {
+      width: 150px;
+      height: auto;
+      border-radius: 8px;
+      margin-top: 20px;
+      float: right;
+    }
+
+    .logo {
+      width: 80px;
+      vertical-align: middle;
+    }
+
+    .about-flex {
+      display: block;
+    }
+
+    .bill-container {
+      padding: 2rem;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+ 
+  <header>
+    <img src="arunimg.jpeg" class="logo" alt="Logo" />
+    <h1>National Academy of Computer</h1>
+    <p>Add. Bakhari Bazar, Deoria (U.P.) 274702 | CALL: 9161653032</p>
+  </header>
+  <nav>
+    <a href="#" onclick="showPage('billing')">Billing Management System</a>
+     <a href="index.html" onclick="showPage('about')">Main Page</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <div class="card about-flex">
+      <p>We are a computer academy providing online examinations and bill tracking for students. Our system is built
+        with HTML, CSS, and JavaScript.</p>
+      <img src="arunphoto.jpeg" class="director-img" alt="Director - Arun Singh">
+      <p><strong>Director – Arun Singh</strong><br>CALL: 9161653032</p>
+    </div>
+  </section>
+
+  <section id="billing" class="active">
+    <h2>Billing Management System</h2>
+    <div class="card">
+      <label>Student Name: <input type="text" id="studentName" /></label>
+      <label>Course: <input type="text" id="courseName" /></label>
+      <label>Bill No: <input type="text" id="billNo" /></label>
+      <label>Total Fees: ₹ <input type="number" id="totalFees" value="7250" /></label>
+      <label>Deposit: ₹ <input type="number" id="paidFees" value="2000" /></label>
+      <label>Next Installment Date: <input type="date" id="nextDate" value="2025-06-25" /></label>
+      <button class="btn" onclick="generateBill()">Generate Bill</button>
+    </div>
+  </section>
+
+  <section id="generatedBill" class="bill-container"></section>
+
+  <footer>
+    <p>&copy; 2025 National Academy of Computer</p>
+  </footer>
+
+  <script>
+    function showPage(id) {
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function generateBill() {
+      const name = document.getElementById('studentName').value;
+      const course = document.getElementById('courseName').value;
+      const billNo = document.getElementById('billNo').value;
+      const total = parseInt(document.getElementById('totalFees').value);
+      const paid = parseInt(document.getElementById('paidFees').value);
+      const due = total - paid;
+      const nextDate = document.getElementById('nextDate').value;
+      const today = new Date().toISOString().split('T')[0];
+      const formattedDate = today.split('-').reverse().join('/');
+
+      document.getElementById('generatedBill').innerHTML = `
+        <div style="background:#0d47a1; color:white; padding:20px; border-radius:10px; max-width:600px; margin:auto;">
+          <h2 style="text-align:center; color:#fff;">NATIONAL ACADEMY OF COMPUTER</h2>
+          <p style="text-align:center; margin:0;">Add. Bakhari bazar deoria (U.P.) 274702 | <strong>CALL - 9161653032</strong></p>
+          <h3 style="background:yellow; color:black; display:inline-block; padding:5px 15px; border-radius:5px; margin:10px auto; text-align:center;">FEE RECEIPT</h3>
+          <table style="width:100%; border-collapse:collapse; background:white; color:black;">
+            <tr><td><strong>Receipt No.</strong></td><td>${billNo}</td></tr>
+            <tr><td><strong>Date</strong></td><td>${formattedDate}</td></tr>
+            <tr><td><strong>Name</strong></td><td><strong>${name}</strong></td></tr>
+            <tr><td><strong>Course</strong></td><td>${course}</td></tr>
+            <tr><td><strong>Total Fee</strong></td><td>${total} ₹</td></tr>
+            <tr><td><strong>Deposit Fee</strong></td><td>${paid} ₹</td></tr>
+            <tr><td><strong>Due Fee</strong></td><td>${due} ₹</td></tr>
+            <tr><td><strong>Next Installments Date</strong></td><td><strong>${new Date(nextDate).toLocaleDateString('en-GB')}</strong></td></tr>
+            <tr><td><strong>Fine Fee</strong></td><td>-</td></tr>
+          </table>
+          <p style="margin-top:10px;"><strong>NOTE -</strong> Fees once paid will not be refunded adjustable in any case.</p>
+          <div style="text-align:right; margin-top:30px;">This is system generated bill no need any signature</div>
+        </div>
+      `;
+
+      showPage('generatedBill');
+    }
+  </script>
+</body>
+
+</html>

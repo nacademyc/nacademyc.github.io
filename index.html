@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/mnt/data/43217116-a325-4871-924a-1b303282b1ec.png" />
+  <title>National Academy of Computer</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(to right, #e3f2fd, #ffffff);
+    }
+
+    header {
+      background: #283593;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      color: #ffca28;
+      margin: 0;
+    }
+
+    nav {
+      background: #3949ab;
+      padding: 0.5rem;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 2rem;
+      display: none;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    .card {
+      background: #f1f8e9;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn {
+      background: #43a047;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #212121;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      position: relative;
+    }
+
+    input,
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="password"] {
+      padding: 5px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    table.bill-table {
+      width: 100%;
+      max-width: 600px;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    table.bill-table td,
+    table.bill-table th {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+
+    table.bill-table th {
+      background-color: #e0e0e0;
+    }
+
+    .dashboard {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .dashboard .card {
+      flex: 1 1 300px;
+    }
+
+    .qr-img {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+      margin-top: 10px;
+    }
+
+    .director-img-box {
+      text-align: right;
+      margin-top: 1rem;
+    }
+
+    .director-img {
+      width: 150px;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .logo {
+      width: 80px;
+      vertical-align: middle;
+    }
+
+    .about-flex {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="arunimg.jpeg" class="logo" alt="Logo" />
+    <h1>National Academy of Computer</h1>
+    <p>Add. Bakhari Bazar, Deoria (U.P.) 274702 | CALL: 9161653032</p>
+  </header>
+  <nav>
+    <a href="#" onclick="showPage('about')">About</a>
+    <a href="#" onclick="showPage('exam')">Test</a>
+    <a href="#" onclick="showPage('signup')">Online Exam</a>
+    <a href="billing.html" onclick="showPage('billing')">Billing Management System</a>
+    <a href="#" onclick="showPage('signup')">Sign Up</a>
+    <a href="#" onclick="showPage('login')">Login</a>
+  </nav>
+
+
+  <section id="about" class="active">
+    <h2>About Us</h2>
+    <div class="card about-flex">
+      <p>
+        <strong>National Academy of Computer</strong> is a trusted and growing computer training institute located in
+        <strong>Bakhari Bazar, Deoria (U.P.) 274702</strong>. We specialize in providing high-quality computer education
+        and practical training in a friendly and professional environment.
+      </p>
+      <p>
+        We also offer <strong>Computer Repair & Maintenance Services</strong> along with training. Whether you're a
+        student, job-seeker, or business owner, we help you gain essential computer skills for today's digital world.
+      </p>
+      <p>
+        <strong>नेशनल एकेडमी ऑफ कंप्यूटर</strong>, बखरी बाजार, देवरिया (उत्तर प्रदेश) में स्थित एक प्रतिष्ठित और विकसित
+        होती कंप्यूटर प्रशिक्षण संस्था है।
+        यहाँ पर कंप्यूटर की उच्च-गुणवत्ता वाली शिक्षा और व्यावहारिक प्रशिक्षण दिया जाता है, वह भी एक सहयोगी और प्रोफेशनल
+        माहौल में।
+      </p>
+      <p>
+        यहाँ <strong>कंप्यूटर रिपेयर और मेंटेनेंस की सेवाएं</strong> भी उपलब्ध हैं। चाहे आप छात्र हों, नौकरी की तैयारी
+        कर रहे हों या व्यापारी,
+        हम आपको आज के डिजिटल युग के लिए आवश्यक कंप्यूटर स्किल्स सिखाने में मदद करते हैं।
+      </p>
+    </div>
+    <div class="director-img-box">
+      <img src="arunphoto.jpeg" class="director-img" alt="Director - Arun Singh">
+      <p><strong>Director – Arun Singh</strong><br>CALL: 9161653032</p>
+    </div>
+  </section>
+  <section id="signup">
+    <h2>Student Sign Up</h2>
+    <div class="card">
+      <label>Username: <input type="text" id="signupUsername" /></label><br>
+      <label>Password: <input type="password" id="signupPassword" /></label><br>
+      <label>Course: <input type="text" id="signupCourse" /></label><br>
+      <button class="btn" onclick="registerStudent()">Sign Up</button>
+      <p id="signupMessage"></p>
+    </div>
+  </section>
+
+  <section id="login">
+    <h2>Student Login</h2>
+    <div class="card">
+      <label>Username: <input type="text" id="username" /></label><br>
+      <label>Password: <input type="password" id="password" /></label><br>
+      <button class="btn" onclick="studentLogin()">Login</button>
+      <p id="loginMessage"></p>
+    </div>
+  </section>
+
+
+  <section id="studentInfo">
+    <h2>Enter Student Details</h2>
+    <div class="card">
+      <label>Name: <input type="text" id="sName" /></label>
+      <label>Father's Name: <input type="text" id="sFather" /></label>
+      <label>Mother's Name: <input type="text" id="sMother" /></label>
+      <label>Course: <input type="text" id="sCourse" /></label>
+      <button class="btn" onclick="startExam()">Start Exam</button>
+    </div>
+  </section>
+
+
+
+  <section id="exam">
+    <h2>Online Exam</h2>
+    <p><strong>Time Left:</strong> <span id="timer">30:00</span></p>
+    <form id="examForm">
+      <div id="questionsContainer" class="card"></div>
+      <button type="submit" class="btn">Submit Exam</button>
+    </form>
+    <div id="examResult" class="hidden card"></div>
+    <button id="downloadBtn" class="btn hidden" onclick="downloadResult()">Download Result</button>
+  </section>
+
+
+
+
+  <script>
+    const questions = [
+      { q: "MS Word खोलने के लिए Run Dialog Box में क्या लिखना पड़ता है?", options: ["Photoshop", "MS word", "winword", "microsoft word"], answer: 2 },
+      { q: "MS Word क्या है?", options: ["Word editing software", "Image editing software", "Video editing software", "कोई नहीं"], answer: 0 },
+      { q: "MS Word में किसी शब्द को खोजने के लिए क्या उपयोग करते हैं?", options: ["Find", "Replace", "Go to", "Left Indent"], answer: 0 },
+      { q: "Save की हुई फाइल को दोबारा सेव करने के लिए क्या उपयोग करते हैं?", options: ["Save", "Save as", "Open", "Print"], answer: 0 },
+      { q: "Bold करने की shortcut key क्या है?", options: ["Ctrl + Shift + B", "Ctrl + B", "Shift + B", "Ctrl + P"], answer: 1 },
+      { q: "MS Word में File Menu कौन-कौन से विकल्प होते हैं?", options: ["New", "Save", "Print", "उपरोक्त सभी"], answer: 3 },
+      { q: "MS Word में default page size क्या होता है?", options: ["Legal", "A4", "Letter", "Tabloid"], answer: 1 },
+      { q: "MS Word में Page Orientation के कितने प्रकार होते हैं?", options: ["1", "2", "3", "4"], answer: 1 },
+      { q: "MS Word में Header/Footer किसके लिए होता है?", options: ["Page number", "Date", "Title", "सभी"], answer: 3 },
+      { q: "MS Word में Red underline का क्या मतलब होता है?", options: ["Spelling mistake", "Grammar mistake", "Format issue", "Hyperlink"], answer: 0 },
+      { q: "MS Word में Ctrl + N किसके लिए उपयोग किया जाता है?", options: ["New document", "Open document", "Close document", "Save document"], answer: 0 },
+      { q: "MS Word में Bullets and Numbering कहाँ होता है?", options: ["Insert tab", "Home tab", "Review tab", "Layout tab"], answer: 1 },
+      { q: "MS Word में text को italic बनाने की shortcut key क्या है?", options: ["Ctrl + I", "Ctrl + L", "Ctrl + T", "Ctrl + E"], answer: 0 },
+      { q: "MS Word में Table insert करने का विकल्प कहाँ होता है?", options: ["Insert tab", "Layout tab", "Design tab", "Home tab"], answer: 0 },
+      { q: "MS Word में किसी शब्द को Cut करने की shortcut key क्या है?", options: ["Ctrl + C", "Ctrl + X", "Ctrl + V", "Ctrl + Z"], answer: 1 },
+      { q: "MS Word में Line spacing का कार्य क्या है?", options: ["Text को Bold करता है", "Text के बीच space देता है", "Font बदलता है", "Page जोड़ता है"], answer: 1 },
+      { q: "MS Word में Grammar mistake कौन से रंग से दिखती है?", options: ["Blue", "Red", "Green", "Yellow"], answer: 2 },
+      { q: "MS Word में Ctrl + P से क्या होता है?", options: ["Print window open होती है", "Paste होता है", "Page add होता है", "Font बदलता है"], answer: 0 },
+      { q: "MS Word में Undo की shortcut key क्या है?", options: ["Ctrl + Y", "Ctrl + U", "Ctrl + Z", "Ctrl + C"], answer: 2 },
+      { q: "MS Word में Redo की shortcut key क्या है?", options: ["Ctrl + Y", "Ctrl + R", "Ctrl + E", "Ctrl + B"], answer: 0 },
+      { q: "MS Word में Font size change करने का विकल्प कहाँ होता है?", options: ["Insert tab", "Home tab", "Design tab", "View tab"], answer: 1 },
+      { q: "MS Word में Copy की shortcut key क्या है?", options: ["Ctrl + V", "Ctrl + C", "Ctrl + X", "Ctrl + Z"], answer: 1 },
+      { q: "MS Word में Paste की shortcut key क्या है?", options: ["Ctrl + C", "Ctrl + X", "Ctrl + V", "Ctrl + Z"], answer: 2 },
+      { q: "MS Word में Page break insert करने की shortcut key क्या है?", options: ["Ctrl + Enter", "Shift + Enter", "Alt + Enter", "Ctrl + Shift + Enter"], answer: 0 },
+      { q: "MS Word में Document को Save करने की shortcut key क्या है?", options: ["Ctrl + S", "Ctrl + P", "Ctrl + A", "Ctrl + B"], answer: 0 },
+      { q: "MS Word में Document को Print करने की shortcut key क्या है?", options: ["Ctrl + S", "Ctrl + P", "Ctrl + D", "Ctrl + R"], answer: 1 },
+      { q: "MS Word में Alignment बदलने की shortcut key क्या है?", options: ["Ctrl + L", "Ctrl + R", "Ctrl + E", "सभी"], answer: 3 },
+      { q: "MS Word में Find का कार्य क्या है?", options: ["Text बदलना", "Text हटाना", "Text खोजना", "Text paste करना"], answer: 2 },
+      { q: "MS Word में Zoom level कहाँ से बदला जाता है?", options: ["Status bar", "Title bar", "Menu bar", "Tool bar"], answer: 0 }
+    ];
+
+    function showPage(id) {
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function loadQuestions() {
+      const container = document.getElementById("questionsContainer");
+      questions.forEach((q, idx) => {
+        const div = document.createElement("div");
+        div.className = "question card";
+        let html = `<p><strong>Q${idx + 1}:</strong> ${q.q}</p>`;
+        q.options.forEach((opt, i) => {
+          html += `<label><input type='radio' name='q${idx}' value='${i}'> ${opt}</label><br>`;
+        });
+        div.innerHTML = html;
+        container.appendChild(div);
+      });
+    }
+
+    document.getElementById("examForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      let score = 0;
+      questions.forEach((q, idx) => {
+        const selected = document.querySelector(`input[name='q${idx}']:checked`);
+        if (selected && parseInt(selected.value) === q.answer) score++;
+      });
+      const result = document.getElementById("examResult");
+      result.classList.remove("hidden");
+      result.innerHTML = `<strong>Your Score: ${score} / ${questions.length}</strong>`;
+    });
+
+    window.onload = loadQuestions;
+  </script>
+
+  <section id="studentDashboard">
+    <h2>Welcome, <span id="studentNameDisplay"></span></h2>
+    <div class="dashboard">
+      <div class="card">
+        <h3>Your Course</h3>
+        <p id="studentCourse"> Not Selected</p>
+      </div>
+      <div class="card">
+        <h3>Give Exam</h3>
+        <button class="btn" onclick="showPage('studentInfo')">Start Exam</button>
+      </div>
+      <div class="card">
+        <h3>Pay Fees</h3>
+        <p>Scan the QR Code below to pay your Exam fees Rs.49</p>
+        <img src="nationalacaqr.jpeg" alt="QR Code" class="qr-img" />
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>&copy; 2025 National Academy of Computer</p>
+  </footer>
+
+  <script>
+
+
+    let registeredUser = {};
+    let studentData = {};
+    let currentStudent = null;
+
+    function showPage(id) {
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function registerStudent() {
+      const user = document.getElementById('signupUsername').value.trim();
+      const pass = document.getElementById('signupPassword').value.trim();
+      const course = document.getElementById('signupCourse').value.trim();
+      const msg = document.getElementById('signupMessage');
+
+      if (user && pass && course) {
+        registeredUser[user] = {
+          password: pass,
+          course: course
+        };
+        msg.style.color = 'green';
+        msg.innerText = 'Signup Successful! Now go to login.';
+      } else {
+        msg.style.color = 'red';
+        msg.innerText = 'Please fill all fields';
+      }
+    }
+
+    function studentLogin() {
+      const user = document.getElementById('username').value.trim();
+      const pass = document.getElementById('password').value.trim();
+      const msg = document.getElementById('loginMessage');
+
+      const userData = registeredUser[user];
+
+      if (userData && userData.password === pass) {
+        currentStudent = user;
+        msg.style.color = 'green';
+        msg.innerText = 'Login Successful!';
+        document.getElementById('studentNameDisplay').innerText = currentStudent;
+        document.getElementById('studentCourse').innerText = userData.course || 'Not Selected';
+        showPage('studentDashboard');
+      } else {
+        msg.style.color = 'red';
+        msg.innerText = 'Invalid Credentials';
+      }
+    }
+
+
+
+    function submitExam() {
+      const answer = document.querySelector('input[name="q1"]:checked');
+      const result = document.getElementById('examResult');
+      if (answer) {
+        result.classList.remove('hidden');
+        result.innerHTML = answer.value === 'a'
+          ? '<p style="color:green;"><strong>Correct!</strong> +1 Marks</p>'
+          : '<p style="color:red;"><strong>Wrong!</strong> 0 Marks</p>';
+      } else {
+        alert("Please select an answer");
+      }
+    }
+
+    let timerDuration = 30 * 60; // 30 minutes in seconds
+    let timerInterval;
+
+    function startTimer() {
+      const timerDisplay = document.getElementById('timer');
+      timerInterval = setInterval(() => {
+        const minutes = Math.floor(timerDuration / 60);
+        const seconds = timerDuration % 60;
+        timerDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        timerDuration--;
+
+        if (timerDuration < 0) {
+          clearInterval(timerInterval);
+          alert("⏰ Time is over! Submitting exam...");
+          document.getElementById("examForm").requestSubmit();
+        }
+      }, 1000);
+    }
+
+    function showPage(id) {
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+
+      // Start timer if exam page is opened
+      if (id === "exam") {
+        timerDuration = 30 * 60;
+        startTimer();
+      }
+    }
+
+    function startExam() {
+      const name = document.getElementById('sName').value.trim();
+      const father = document.getElementById('sFather').value.trim();
+      const mother = document.getElementById('sMother').value.trim();
+      const course = document.getElementById('sCourse').value.trim();
+
+      if (!name || !father || !mother || !course) {
+        alert("Please fill all fields.");
+        return;
+      }
+
+      studentData = {
+        name,
+        father,
+        mother,
+        course,
+        date: new Date().toLocaleDateString()
+      };
+
+      showPage('exam');
+      startTimer();
+    }
+
+    function downloadResult() {
+      const resultContent = document.getElementById("examResult").innerHTML;
+      const blob = new Blob([resultContent], { type: 'text/html' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'Exam_Result.html';
+      link.click();
+    }
+
+
+    document.getElementById("examForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      let score = 0;
+      questions.forEach((q, idx) => {
+        const selected = document.querySelector(`input[name='q${idx}']:checked`);
+        if (selected && parseInt(selected.value) === q.answer) score++;
+      });
+
+      const result = document.getElementById("examResult");
+      result.classList.remove("hidden");
+      document.getElementById("downloadBtn").classList.remove("hidden");
+
+      const percentage = ((score / questions.length) * 100).toFixed(2);
+      const pass = score >= 10;
+
+      if (pass) {
+        result.innerHTML = `
+      <div id="resultCard" style="border: 4px double #003366; padding: 20px; font-family: Georgia; line-height: 1.6;">
+        <h1 style="text-align: center; color: maroon;">NATIONAL ACADEMY OF COMPUTER</h1>
+        <p style="color: #003366; text-align: center; "><strong>ADD. BAKHARI BAZAR DEORIA (U.P.) 274702</strong></p>
+        <p style="text-align: right;"><strong>MOB. 9161653032</strong></p>
+        <h3 style="text-align: center; color: goldenrod;">EXAM RESULT</h3>
+        <p><strong>Student’s Name:</strong> ${studentData.name}</p>
+        <p><strong>Father’s Name:</strong> ${studentData.father}</p>
+        <p><strong>Mother’s Name:</strong> ${studentData.mother}</p>
+        <p><strong>Course:</strong> ${studentData.course}</p>
+        <p><strong>Date:</strong> ${studentData.date}</p>
+        <p><strong>Subject:</strong> MS WORD</p>
+        <p><strong>Total Marks:</strong> ${questions.length}</p>
+        <p><strong>Write Answer:</strong> ${score}</p>
+        <p><strong>Wrong Answer:</strong> ${questions.length - score}</p>
+        <p><strong>Percentage:</strong> ${percentage}%</p>
+        <p style="color: brown;">This is system generated result no need any signature.</p>
+       
+      </div>`;
+        // <button class="btn" onclick="downloadResult()">Download Result</button>
+      } else {
+        result.innerHTML = `<p style="color: red;"><strong>Fail</strong> - You scored ${score}/${questions.length} (${percentage}%)</p>`;
+      }
+    });
+
+    window.onload = function () {
+      loadQuestions();
+      showPage('about');
+    };
+
+
+  </script>
+
+</body>
+
+</html>
