@@ -1,0 +1,143 @@
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(to right, #e3f2fd, #ffffff);
+    }
+
+    header {
+      background: #283593;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      color: #ffca28;
+      margin: 0;
+    }
+
+    nav {
+      background: #3949ab;
+      padding: 0.5rem;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 2rem;
+      display: none;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    .card {
+      background: #f1f8e9;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn {
+      background: #43a047;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #212121;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      position: relative;
+    }
+
+    input,
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="password"] {
+      padding: 5px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    table.bill-table {
+      width: 100%;
+      max-width: 600px;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    table.bill-table td,
+    table.bill-table th {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+
+    table.bill-table th {
+      background-color: #e0e0e0;
+    }
+
+    .dashboard {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .dashboard .card {
+      flex: 1 1 300px;
+    }
+
+    .qr-img {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+      margin-top: 10px;
+    }
+
+    .director-img-box {
+      text-align: right;
+      margin-top: 1rem;
+    }
+
+    .director-img {
+      width: 150px;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .logo {
+      width: 80px;
+      vertical-align: middle;
+    }
+
+    .about-flex {
+      display: block;
+    }
