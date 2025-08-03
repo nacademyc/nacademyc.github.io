@@ -6,151 +6,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="/mnt/data/43217116-a325-4871-924a-1b303282b1ec.png" />
+  <link rel="stylesheet" href="style.css">
+
   <title>National Academy of Computer</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
 
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: linear-gradient(to right, #e3f2fd, #ffffff);
-    }
-
-    header {
-      background: #283593;
-      color: #fff;
-      padding: 1rem;
-      text-align: center;
-    }
-
-    header h1 {
-      color: #ffca28;
-      margin: 0;
-    }
-
-    nav {
-      background: #3949ab;
-      padding: 0.5rem;
-      text-align: center;
-    }
-
-    nav a {
-      color: #fff;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    section {
-      padding: 2rem;
-      display: none;
-    }
-
-    section.active {
-      display: block;
-    }
-
-    .card {
-      background: #f1f8e9;
-      padding: 1rem;
-      margin: 1rem 0;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .btn {
-      background: #43a047;
-      color: #fff;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    footer {
-      background: #212121;
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-      position: relative;
-    }
-
-    input,
-    label {
-      display: block;
-      margin-bottom: 10px;
-    }
-
-    input[type="text"],
-    input[type="number"],
-    input[type="password"] {
-      padding: 5px;
-      width: 100%;
-      max-width: 400px;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    table.bill-table {
-      width: 100%;
-      max-width: 600px;
-      border-collapse: collapse;
-      margin-top: 1rem;
-    }
-
-    table.bill-table td,
-    table.bill-table th {
-      border: 1px solid #ccc;
-      padding: 8px;
-      text-align: left;
-    }
-
-    table.bill-table th {
-      background-color: #e0e0e0;
-    }
-
-    .dashboard {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .dashboard .card {
-      flex: 1 1 300px;
-    }
-
-    .qr-img {
-      width: 150px;
-      height: 150px;
-      object-fit: contain;
-      margin-top: 10px;
-    }
-
-    .director-img-box {
-      text-align: right;
-      margin-top: 1rem;
-    }
-
-    .director-img {
-      width: 150px;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    .logo {
-      width: 80px;
-      vertical-align: middle;
-    }
-
-    .about-flex {
-      display: block;
-    }
-  </style>
 </head>
 
 <body>
@@ -160,8 +19,9 @@
     <p>Add. Bakhari Bazar, Deoria (U.P.) 274702 | CALL: 9161653032</p>
   </header>
   <nav>
+
     <a href="#" onclick="showPage('about')">About</a>
-<!--     <a href="#" onclick="showPage('exam')">Test</a> -->
+    <a href="#" onclick="showPage('demo')">Demo Test</a>
     <a href="#" onclick="showPage('signup')">Online Exam</a>
     <a href="billing.html" onclick="showPage('billing')">Billing Management System</a>
     <a href="#" onclick="showPage('signup')">Sign Up</a>
@@ -227,66 +87,137 @@
       <label>Father's Name: <input type="text" id="sFather" /></label>
       <label>Mother's Name: <input type="text" id="sMother" /></label>
       <label>Course: <input type="text" id="sCourse" /></label>
-      <button class="btn" onclick="startExam()">Start Exam</button>
+      <button class="btn" onclick="startExam('word')">MS Word</button>
+      <button class="btn" onclick="startExam('paint')">MS Paint</button>
+      <button class="btn" onclick="startExam('excel')">MS Excel</button>
+      <button class="btn" onclick="startExam('powerpoint')">MS PowerPoint</button>
+      <button class="btn" onclick="startExam('internet')">Internet</button>
+      <button class="btn" onclick="startExam('photoshop')">Photoshop</button>
+      <button class="btn" onclick="startExam('tally')">Tally</button>
+      <button class="btn" onclick="startExam('final')">Final Exam</button>
+
     </div>
   </section>
 
-
-
-  <section id="exam">
-    <h2>Online Exam</h2>
+  <section id="mspowerpoint" class="hidden">
+    <h2>MS PowerPoint</h2>
     <p><strong>Time Left:</strong> <span id="timer">30:00</span></p>
-    <form id="examForm">
-      <div id="questionsContainer" class="card"></div>
+    <form id="powerpointForm">
+      <div id="questionsContainerpowerpoint" class="card"></div>
       <button type="submit" class="btn">Submit Exam</button>
     </form>
-    <div id="examResult" class="hidden card"></div>
-    <button id="downloadBtn" class="btn hidden" onclick="downloadResult()">Download Result</button>
+    <div id="examResult_powerpoint" class="hidden card"></div>
+    <button id="downloadBtn_powerpoint" class="btn hidden" onclick="downloadResultPowerpoint()">Download Result</button>
   </section>
 
+  <section id="internet" class="hidden">
+    <h2>Internet</h2>
+    <p><strong>Time Left:</strong> <span id="timer">30:00</span></p>
+    <form id="internetForm">
+      <div id="questionsContainerinternet" class="card"></div>
+      <button type="submit" class="btn">Submit Exam</button>
+    </form>
+    <div id="examResult_internet" class="hidden card"></div>
+    <button id="downloadBtn_internet" class="btn hidden" onclick="downloadResultInternet()">Download Result</button>
+  </section>
+
+  <section id="photoshop" class="hidden">
+    <h2>Photoshop</h2>
+    <p><strong>Time Left:</strong> <span id="timer">30:00</span></p>
+    <form id="photoshopForm">
+      <div id="questionsContainerphotoshop" class="card"></div>
+      <button type="submit" class="btn">Submit Exam</button>
+    </form>
+    <div id="examResult_photoshop" class="hidden card"></div>
+    <button id="downloadBtn_photoshop" class="btn hidden" onclick="downloadResultPhotoshop()">Download Result</button>
+  </section>
+
+  <section id="tally" class="hidden">
+    <h2>Tally</h2>
+    <p><strong>Time Left:</strong> <span id="timer">30:00</span></p>
+    <form id="tallyForm">
+      <div id="questionsContainertally" class="card"></div>
+      <button type="submit" class="btn">Submit Exam</button>
+    </form>
+    <div id="examResult_tally" class="hidden card"></div>
+    <button id="downloadBtn_tally" class="btn hidden" onclick="downloadResultTally()">Download Result</button>
+  </section>
+
+
+  <section id="final" class="hidden">
+    <h2>Final Exam</h2>
+    <p><strong>Time Left:</strong> <span id="timer">30:00</span></p>
+    <form id="finalForm">
+      <div id="questionsContainerfinal" class="card"></div>
+      <button type="submit" class="btn">Submit Exam</button>
+    </form>
+    <div id="examResult_final" class="hidden card"></div>
+    <button id="downloadBtn_final" class="btn hidden" onclick="downloadResultFinal()">Download Result</button>
+  </section>
+
+
+
+  <section id="mspaint" class="hidden">
+    <h2>MS Paint</h2>
+    <p><strong>Time Left:</strong> <span id="timer">30:00</span></p>
+
+    <form id="paintForm">
+      <div id="questionsContainermspaint" class="card"></div>
+      <button type="submit" class="btn">Submit Exam</button>
+    </form>
+
+    <div id="examResult_paint" class="hidden card" style="margin-top: 20px;"></div>
+
+    <button id="downloadBtn_paint" class="btn hidden" onclick="downloadResultPaint()">
+      Download Result
+    </button>
+  </section>
+
+
+  <section id="msexcel" class="hidden">
+    <h2>MS Excel</h2>
+    <p><strong>Time Left:</strong> <span id="timer">30:00</span></p>
+
+    <form id="excelForm">
+      <div id="questionsContainermsexcel" class="card"></div>
+
+      <button type="submit" class="btn">Submit Exam</button>
+    </form>
+
+    <!-- ✅ Unique result div for MS Excel -->
+    <div id="examResult_excel" class="hidden card" style="margin-top: 20px;"></div>
+
+    <!-- ✅ Unique download button for MS Excel -->
+    <button id="downloadBtn_excel" class="btn hidden" style="margin-top: 10px;" onclick="downloadResultExcel()">
+      Download Result
+    </button>
+  </section>
+
+  <section id="msword" class="hidden">
+    <h2>MS Word</h2>
+    <p><strong>Time Left:</strong> <span id="timer">30:00</span></p>
+
+    <form id="wordForm">
+      <div id="questionsContainermsword" class="card"></div>
+      <button type="submit" class="btn">Submit Exam</button>
+    </form>
+
+    <div id="examResult_word" class="hidden card" style="margin-top: 20px;"></div>
+    <button id="downloadBtn_word" class="btn hidden" onclick="downloadResultWord()">Download Result</button>
+  </section>
 
 
 
   <script>
-    const questions = [
-      { q: "MS Word खोलने के लिए Run Dialog Box में क्या लिखना पड़ता है?", options: ["Photoshop", "MS word", "winword", "microsoft word"], answer: 2 },
-      { q: "MS Word क्या है?", options: ["Word editing software", "Image editing software", "Video editing software", "कोई नहीं"], answer: 0 },
-      { q: "MS Word में किसी शब्द को खोजने के लिए क्या उपयोग करते हैं?", options: ["Find", "Replace", "Go to", "Left Indent"], answer: 0 },
-      { q: "Save की हुई फाइल को दोबारा सेव करने के लिए क्या उपयोग करते हैं?", options: ["Save", "Save as", "Open", "Print"], answer: 0 },
-      { q: "Bold करने की shortcut key क्या है?", options: ["Ctrl + Shift + B", "Ctrl + B", "Shift + B", "Ctrl + P"], answer: 1 },
-      { q: "MS Word में File Menu कौन-कौन से विकल्प होते हैं?", options: ["New", "Save", "Print", "उपरोक्त सभी"], answer: 3 },
-      { q: "MS Word में default page size क्या होता है?", options: ["Legal", "A4", "Letter", "Tabloid"], answer: 1 },
-      { q: "MS Word में Page Orientation के कितने प्रकार होते हैं?", options: ["1", "2", "3", "4"], answer: 1 },
-      { q: "MS Word में Header/Footer किसके लिए होता है?", options: ["Page number", "Date", "Title", "सभी"], answer: 3 },
-      { q: "MS Word में Red underline का क्या मतलब होता है?", options: ["Spelling mistake", "Grammar mistake", "Format issue", "Hyperlink"], answer: 0 },
-      { q: "MS Word में Ctrl + N किसके लिए उपयोग किया जाता है?", options: ["New document", "Open document", "Close document", "Save document"], answer: 0 },
-      { q: "MS Word में Bullets and Numbering कहाँ होता है?", options: ["Insert tab", "Home tab", "Review tab", "Layout tab"], answer: 1 },
-      { q: "MS Word में text को italic बनाने की shortcut key क्या है?", options: ["Ctrl + I", "Ctrl + L", "Ctrl + T", "Ctrl + E"], answer: 0 },
-      { q: "MS Word में Table insert करने का विकल्प कहाँ होता है?", options: ["Insert tab", "Layout tab", "Design tab", "Home tab"], answer: 0 },
-      { q: "MS Word में किसी शब्द को Cut करने की shortcut key क्या है?", options: ["Ctrl + C", "Ctrl + X", "Ctrl + V", "Ctrl + Z"], answer: 1 },
-      { q: "MS Word में Line spacing का कार्य क्या है?", options: ["Text को Bold करता है", "Text के बीच space देता है", "Font बदलता है", "Page जोड़ता है"], answer: 1 },
-      { q: "MS Word में Grammar mistake कौन से रंग से दिखती है?", options: ["Blue", "Red", "Green", "Yellow"], answer: 2 },
-      { q: "MS Word में Ctrl + P से क्या होता है?", options: ["Print window open होती है", "Paste होता है", "Page add होता है", "Font बदलता है"], answer: 0 },
-      { q: "MS Word में Undo की shortcut key क्या है?", options: ["Ctrl + Y", "Ctrl + U", "Ctrl + Z", "Ctrl + C"], answer: 2 },
-      { q: "MS Word में Redo की shortcut key क्या है?", options: ["Ctrl + Y", "Ctrl + R", "Ctrl + E", "Ctrl + B"], answer: 0 },
-      { q: "MS Word में Font size change करने का विकल्प कहाँ होता है?", options: ["Insert tab", "Home tab", "Design tab", "View tab"], answer: 1 },
-      { q: "MS Word में Copy की shortcut key क्या है?", options: ["Ctrl + V", "Ctrl + C", "Ctrl + X", "Ctrl + Z"], answer: 1 },
-      { q: "MS Word में Paste की shortcut key क्या है?", options: ["Ctrl + C", "Ctrl + X", "Ctrl + V", "Ctrl + Z"], answer: 2 },
-      { q: "MS Word में Page break insert करने की shortcut key क्या है?", options: ["Ctrl + Enter", "Shift + Enter", "Alt + Enter", "Ctrl + Shift + Enter"], answer: 0 },
-      { q: "MS Word में Document को Save करने की shortcut key क्या है?", options: ["Ctrl + S", "Ctrl + P", "Ctrl + A", "Ctrl + B"], answer: 0 },
-      { q: "MS Word में Document को Print करने की shortcut key क्या है?", options: ["Ctrl + S", "Ctrl + P", "Ctrl + D", "Ctrl + R"], answer: 1 },
-      { q: "MS Word में Alignment बदलने की shortcut key क्या है?", options: ["Ctrl + L", "Ctrl + R", "Ctrl + E", "सभी"], answer: 3 },
-      { q: "MS Word में Find का कार्य क्या है?", options: ["Text बदलना", "Text हटाना", "Text खोजना", "Text paste करना"], answer: 2 },
-      { q: "MS Word में Zoom level कहाँ से बदला जाता है?", options: ["Status bar", "Title bar", "Menu bar", "Tool bar"], answer: 0 }
-    ];
-
     function showPage(id) {
       document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
       document.getElementById(id).classList.add('active');
     }
 
-    function loadQuestions() {
-      const container = document.getElementById("questionsContainer");
+
+    function loadQuestions(questions, containerId) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = ''; // Ensure it is clean
       questions.forEach((q, idx) => {
         const div = document.createElement("div");
         div.className = "question card";
@@ -299,6 +230,7 @@
       });
     }
 
+
     document.getElementById("examForm").addEventListener("submit", function (e) {
       e.preventDefault();
       let score = 0;
@@ -308,11 +240,12 @@
       });
       const result = document.getElementById("examResult");
       result.classList.remove("hidden");
-      result.innerHTML = `<strong>Your Score: ${score} / ${questions.length}</strong>`;
+      result.innerHTML = `<strong>Your Score: ${score} / ${questionsmsword.length}</strong>`;
     });
 
-    window.onload = loadQuestions;
+    window.onload = loadQuestions(questionsmsword, 'questionsContainer');
   </script>
+
 
   <section id="studentDashboard">
     <h2>Welcome, <span id="studentNameDisplay"></span></h2>
@@ -340,7 +273,9 @@
 
   <script>
 
-
+    let currentQuestions = [];
+    let currentSubject = '';
+    let questions = [];
     let registeredUser = {};
     let studentData = {};
     let currentStudent = null;
@@ -423,6 +358,18 @@
       }, 1000);
     }
 
+
+    function showPage(id) {
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+
+      // Start timer if exam page is opened
+      if (id === "mspaint") {
+        timerDuration = 30 * 60;
+        startTimer();
+      }
+    }
+
     function showPage(id) {
       document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
       document.getElementById(id).classList.add('active');
@@ -434,7 +381,308 @@
       }
     }
 
-    function startExam() {
+    function downloadResult() {
+      const resultContent = document.getElementById("examResult").innerHTML;
+      const blob = new Blob([resultContent], { type: 'text/html' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'Exam_Result.html';
+      link.click();
+    }
+  </script>
+
+  <script>
+    const questionsmspaint = [
+      { n: 1, q: "MS Paint का डिफ़ॉल्ट Background Color क्या होता है?", options: ["हरा", "सफ़ेद", "लाल", "नीला"], answer: 1 },
+      { n: 2, q: "सीधी रेखा खींचने के लिए कौन सी key का उपयोग होता है?", options: ["Shift + drag", "Alt + drag", "F4 + drag", "Tab + drag"], answer: 0 },
+      { n: 3, q: "MS Paint में Fill color कहाँ होता है?", options: ["Tool बार", "Menu बार", "Format बार", "Edit बार"], answer: 0 },
+      { n: 4, q: "Paint में ribbon छिपाने की शॉर्टकट key क्या है?", options: ["Windows + F1", "Ctrl + F1", "Shift + F1", "Alt + F1"], answer: 1 },
+      { n: 5, q: "गोलाकार shape draw करने के लिए किसका उपयोग होता है?", options: ["Line", "Box", "Oval", "उपयुक्त सभी"], answer: 2 },
+      { n: 6, q: "Text tool का उपयोग किसलिए होता है?", options: ["कलर भरने के लिए", "Text लिखने के लिए", "line बनाने के लिए", "कोई नहीं"], answer: 1 },
+      { n: 7, q: "Paint में 'Save As' की शॉर्टकट key क्या है?", options: ["F11", "F12", "F5", "F9"], answer: 1 },
+      { n: 8, q: "Print preview के लिए शॉर्टकट key क्या है?", options: ["Ctrl + V", "Ctrl + O", "Ctrl + L", "Ctrl + F2"], answer: 3 },
+      { n: 9, q: "MS Paint किस operating system में होता है?", options: ["Linux", "Unix", "DOS", "Windows"], answer: 3 },
+      { n: 10, q: "shape में color भरने के लिए कौन सा tool use होता है?", options: ["Format tool", "Pencil tool", "Text tool", "Fill tool"], answer: 3 },
+      { n: 11, q: "MS Paint क्या है?", options: ["Software", "Operating system", "File", "Drive"], answer: 0 },
+      { n: 12, q: "Paint का उपयोग किसलिए होता है?", options: ["Document बनाने के लिए", "Sheet बनाने के लिए", "Resume के लिए", "Drawing के लिए"], answer: 3 },
+      { n: 13, q: "Cut करने की शॉर्टकट key क्या है?", options: ["Ctrl + A", "Ctrl + B", "Ctrl + X", "कोई नहीं"], answer: 2 },
+      { n: 14, q: "Paint से exit करने के लिए किस key का उपयोग होता है?", options: ["Ctrl + A", "Ctrl + F4", "Shift + F4", "Alt + F4"], answer: 3 },
+      { n: 15, q: "Paint में कितने प्रकार के ब्रश मिलते हैं?", options: ["8", "9", "7", " "], answer: 1 },
+      { n: 16, q: "Paint open करने के लिए run dialog में क्या लिखते हैं?", options: ["paint", "Painting", "MS Paint", "None"], answer: 0 },
+      { n: 17, q: "Select, crop, resize और rotate कहाँ होते हैं?", options: ["Image", "Tool", "Shape", "Color"], answer: 0 },
+      { n: 18, q: "Tool bar में इनमें से कौन नहीं होता?", options: ["Fill color", "Pencil", "Text", "Crop"], answer: 3 },
+      { n: 19, q: "Resize करने की शॉर्टकट key क्या है?", options: ["Ctrl + W", "Ctrl + R", "Ctrl + T", "Ctrl + O"], answer: 0 },
+      { n: 20, q: "Paint में zoom in की max limit क्या है?", options: ["300%", "200%", "800%", "500%"], answer: 2 },
+      { n: 21, q: "Zoom out की minimum limit क्या है?", options: ["10%", "11%", "12.5%", "15%"], answer: 2 },
+      { n: 22, q: "रूलर show करने के लिए किस Tab का उपयोग करते हैं?", options: ["Home tab", "File tab", "Format tab", "View tab"], answer: 3 },
+      { n: 23, q: "Paint में सबसे ऊपर कौन सा bar होता है?", options: ["Menu bar", "Tool bar", "Status bar", "Title bar"], answer: 3 },
+      { n: 24, q: "रूलर enable करने की शॉर्टकट key क्या है?", options: ["Ctrl + F2", "Ctrl + Z", "Ctrl + R", "Ctrl + A"], answer: 2 },
+      { n: 25, q: "Paint में copy करने की शॉर्टकट key क्या है?", options: ["Ctrl + A", "Ctrl + X", "Ctrl + C", "Ctrl + Y"], answer: 2 },
+      { n: 26, q: "MS Paint में Undo करने की शॉर्टकट key क्या है?", options: ["Ctrl + Y", "Ctrl + Z", "Ctrl + U", "Ctrl + X"], answer: 1 },
+      { n: 27, q: "Paint में किसी image को flip करने का विकल्प कहाँ होता है?", options: ["Home Tab", "View Tab", "File Tab", "Image Tab"], answer: 0 },
+      { n: 28, q: "MS Paint में Eraser tool का उपयोग क्या करता है?", options: ["Text मिटाने के लिए", "Color बदलने के लिए", "Drawing मिटाने के लिए", "Zoom करने के लिए"], answer: 2 },
+      { n: 29, q: "Paint में 'Select All' करने के लिए कौन सी शॉर्टकट key होती है?", options: ["Ctrl + A", "Ctrl + S", "Ctrl + Shift + A", "Ctrl + D"], answer: 0 },
+      { n: 30, q: "MS Paint में Zoom tool का icon कैसा होता है?", options: ["Brush", "A अक्षर", "आंख", "Magnifying glass"], answer: 3 }
+    ];
+
+
+
+    const questionsfinal = [
+      { n: 1, q: "Worksheet किनका समूह होती है?", options: ["Column", "Cells", "Box", "Formula"], answer: 1 },
+      { n: 2, q: "निम्न में से स्प्रेडशीट का प्रकार क्या है?", options: ["Lotus 1-2-3", "MS Excel", "Cell", "दिए गए सभी"], answer: 3 },
+      { n: 3, q: "Excel में सेल का प्रारूप बदलने का कार्य होता है?", options: ["Format menu", "Data menu", "Tool menu", "Insert menu"], answer: 0 },
+      { n: 4, q: "Microsoft Excel है?", options: ["Spreadsheet", "Normal paper", "Worksheet", "इनमे से कोई नहीं"], answer: 0 },
+      { n: 5, q: "Excel में डाटा को किस क्रम में शॉर्ट किया जाता है?", options: ["Data menu", "Tool menu", "Edit menu", "File menu"], answer: 0 },
+      { n: 6, q: "Worksheet के एक सेल में अधिकतम कितने कैरेक्टर रख सकते हैं?", options: ["254", "255", "256", "257"], answer: 1 },
+      { n: 7, q: "शीघ्रता से formatting करने के लिए किस टूल का प्रयोग होता है?", options: ["Formatting Toolbar", "Auto Formatting Command", "Format menu", "Heetson"], answer: 0 },
+      { n: 8, q: "वर्कशीट में प्रथम सेल का पता A1 है?", options: ["सही", "गलत"], answer: 0 },
+      { n: 9, q: "Excel 2003 में row की संख्या कितनी है?", options: ["65535", "65536", "65534", "65533"], answer: 1 },
+      { n: 10, q: "क्या हम MS Excel में ग्राफ बना सकते हैं?", options: ["सही", "गलत"], answer: 0 },
+      { n: 11, q: "Excel में औसत ज्ञात करने के लिए कौन सा formula प्रयोग होता है?", options: ["Max", "Min", "Average", "Sum"], answer: 2 },
+      { n: 12, q: "Hyperlink जोड़ने के लिए कौन सी shortcut key होती है?", options: ["Alt + K", "Ctrl + K", "Ctrl + H", "Ctrl + M"], answer: 1 },
+      { n: 13, q: "Current date insert करने का फंक्शन क्या है?", options: ["Data", "Today", "Now", "Time"], answer: 1 },
+      { n: 14, q: "Excel में default view क्या होता है?", options: ["Work", "Auto", "Normal", "Heetson"], answer: 2 },
+      { n: 15, q: "______ predefined formula होते हैं जो स्वतः गणना करते हैं।", options: ["Function", "Word-wrap", "Auto sum", "Logical"], answer: 0 },
+      { n: 16, q: "Excel में संशोधन के लिए कौन सी key उपयोग होती है?", options: ["F1", "F2", "F3", "F4"], answer: 1 },
+      { n: 17, q: "इनमें से कौन Excel की term नहीं है?", options: ["Cell", "Rows", "Column", "Document"], answer: 3 },
+      { n: 18, q: "पहले वाली worksheet पर जाने के लिए shortcut key क्या है?", options: ["Alt + Page Up", "Ctrl + Page Up", "Ctrl + Page Down", "Shift + Tab"], answer: 1 },
+      { n: 19, q: "Data edit और enter करने के लिए आप किसका उपयोग कर सकते हैं?", options: ["Formula bar", "Title bar", "Menu bar", "Space bar"], answer: 0 },
+      { n: 20, q: "चौड़े format में print लेने के लिए कौन सा orientation प्रयोग करेंगे?", options: ["Landscape", "Portrait", "क्षैतिज", "वर्टिकल"], answer: 0 },
+      { n: 21, q: "MS Excel 2010 का उपयोग किसमें किया जाता है?", options: ["गणना", "मैनीपुलेशन", "प्रेजेंटेशन", "उपरोक्त सभी"], answer: 3 },
+      { n: 22, q: "Page के ऊपर वाले margin में जो text होता है, वह क्या कहलाता है?", options: ["Footer", "Column", "Header", "Paragraph"], answer: 2 },
+      { n: 23, q: "Cell address $A$4 किसका प्रतीक है?", options: ["Relative", "Mixed", "Absolute", "उपरोक्त सभी"], answer: 2 },
+      { n: 24, q: "कौन-सा feature values के अनुमान में मदद करता है?", options: ["Find", "Replace", "Goal Seek", "Go to"], answer: 2 },
+      { n: 25, q: "Excel का कौन-सा feature श्रृंखला को स्वत: दोहराने में मदद करता है?", options: ["Auto Fill", "Auto Correct", "दोनों", "Heetson"], answer: 2 },
+      { n: 26, q: "Excel में new sheet insert करने की shortcut key क्या है?", options: ["Shift + F11", "Ctrl + N", "Ctrl + Shift + S", "Alt + I"], answer: 0 },
+      { n: 27, q: "Excel में comment insert करने की shortcut key क्या है?", options: ["Ctrl + M", "Shift + F2", "Alt + F2", "Ctrl + Shift + M"], answer: 1 },
+      { n: 28, q: "किस function से maximum value निकाली जाती है?", options: ["Sum", "Max", "Min", "If"], answer: 1 },
+      { n: 29, q: "Excel में row delete करने की shortcut key क्या है?", options: ["Ctrl + -", "Ctrl + D", "Ctrl + Shift + Delete", "Ctrl + Backspace"], answer: 0 },
+      { n: 30, q: "Excel में column width बदलने के लिए किस menu का उपयोग होता है?", options: ["Insert", "Format", "Data", "Tools"], answer: 1 }
+    ];
+
+
+    const questionstally = [
+      // EASY (1–10)
+      { q: "Tally किसके लिए उपयोग होता है?", options: ["Accounting", "Gaming", "Browsing", "Editing"], answer: 0 },
+      { q: "Tally में voucher entry किसके लिए होती है?", options: ["Data analysis", "Accounting entry", "Graphic Design", "Video Editing"], answer: 1 },
+      { q: "Tally का फुल फॉर्म क्या है?", options: ["Total Accounting Learning Language for You", "Total Access Legal Language Year", "Technical Allocation Level Language", "कोई नहीं"], answer: 0 },
+      { q: "Tally में default company कौन सी होती है?", options: ["ABC Ltd.", "Tally Ltd.", "Gateway Ltd.", "कोई नहीं"], answer: 0 },
+      { q: "Tally में कौन सा key group बनाने के लिए होता है?", options: ["F10", "Alt + G", "Alt + C", "F12"], answer: 2 },
+      { q: "Tally में balance sheet किस menu से देख सकते हैं?", options: ["Display", "Gateway", "Accounting", "Inventory"], answer: 0 },
+      { q: "Tally में entry करने के लिए कौन सा menu होता है?", options: ["Accounting Vouchers", "Inventory Reports", "Company Features", "F12 Config"], answer: 0 },
+      { q: "Tally में Ledger बनाने के लिए shortcut key क्या है?", options: ["Alt + C", "Ctrl + C", "F2", "Alt + F3"], answer: 0 },
+      { q: "Tally में कौन सा key Payment Voucher खोलता है?", options: ["F5", "F6", "F4", "F7"], answer: 0 },
+      { q: "Tally में Company बनाने के लिए shortcut क्या है?", options: ["Alt + F3", "Alt + F1", "F2", "Ctrl + C"], answer: 0 },
+
+      // MEDIUM (11–20)
+      { q: "Tally में Multiple Godowns feature कहाँ activate होता है?", options: ["Inventory Features", "Accounting Features", "Statutory Features", "Gateway"], answer: 0 },
+      { q: "Tally में Contra voucher किसके लिए होता है?", options: ["Cash deposits/withdrawals", "Invoice creation", "Stock management", "Ledger comparison"], answer: 0 },
+      { q: "Tally में Gateway of Tally किसका मुख्य dashboard होता है?", options: ["Reports", "Transactions", "Main Navigation", "Inventory"], answer: 2 },
+      { q: "Tally में Statutory & Taxation कहाँ activate किया जाता है?", options: ["F11 Features", "F12 Configuration", "Alt + F1", "Alt + C"], answer: 0 },
+      { q: "Tally में Interest Calculation के लिए कौन सा option enable करते हैं?", options: ["Activate Interest Calculation", "Enable Cost Centers", "Enable Job Costing", "Enable Payroll"], answer: 0 },
+      { q: "Tally में F11 key किसके लिए होती है?", options: ["Company Features", "Voucher Entry", "Print Report", "Ledger View"], answer: 0 },
+      { q: "Tally ERP 9 में Inventory Management कहाँ होता है?", options: ["Gateway of Tally > Inventory Info", "Accounting Info", "Payroll Info", "Display"], answer: 0 },
+      { q: "Tally में GST activation के लिए क्या enable करना होता है?", options: ["Enable Goods and Services Tax (GST)", "Enable VAT", "Enable TDS", "Enable Excise"], answer: 0 },
+      { q: "Tally में Credit Note के लिए shortcut key क्या है?", options: ["Ctrl + F8", "F8", "Alt + F8", "Ctrl + C"], answer: 2 },
+      { q: "Tally में Bank Reconciliation कहाँ से किया जाता है?", options: ["Banking Menu", "Inventory Info", "Accounting Vouchers", "Display > Account Books"], answer: 3 },
+
+      // HARD (21–30)
+      { q: "Tally में Voucher Class का उपयोग किसलिए होता है?", options: ["Automation of entries", "Bank entry", "Group creation", "Ledger deletion"], answer: 0 },
+      { q: "Tally में Payroll Feature को activate करने के लिए कौन-सा step सही है?", options: ["F11 > Enable Payroll", "F12 > Payroll", "Alt + F1 > Payroll", "Gateway > Payroll"], answer: 0 },
+      { q: "Tally में Multi-Currency feature किस लिए होता है?", options: ["International Transactions", "GST Return Filing", "Barcode Printing", "Stock Valuation"], answer: 0 },
+      { q: "Tally में Voucher Types कहाँ से बनाए जाते हैं?", options: ["Accounts Info > Voucher Types", "Inventory Info > Voucher Types", "Gateway > Ledger Info", "F11 Features"], answer: 0 },
+      { q: "Tally में Inventory Valuation Method बदलने के लिए किसका उपयोग होता है?", options: ["F12 Configuration", "Gateway > Inventory Info", "Accounting Info", "F11"], answer: 0 },
+      { q: "Tally में TDS configure करने के लिए कौन सा section जरूरी होता है?", options: ["Statutory & Taxation", "Voucher Types", "Ledger Features", "Payroll Setup"], answer: 0 },
+      { q: "Tally में Job Costing report कहाँ से देखी जाती है?", options: ["Display > Statement of Accounts", "Gateway > Inventory", "Statutory Reports", "Company Info"], answer: 0 },
+      { q: "Tally में Group Voucher Report कहाँ देखी जाती है?", options: ["Display > Account Books > Group Summary", "Accounting Info", "Inventory Reports", "Gateway > Summary"], answer: 0 },
+      { q: "Tally में Zero Valued Entries को enable करने का विकल्प कहाँ है?", options: ["F11 Features > Accounts", "F12 Configuration > Invoice", "Voucher Configuration", "Inventory Features"], answer: 1 },
+      { q: "Tally में Audit Trail की सुविधा किस version में अनिवार्य की गई?", options: ["TallyPrime 2.1", "ERP 9 Release 6.6.1", "TallyPrime 2.0", "Tally.ERP 9 Educational"], answer: 0 }
+    ];
+
+
+    const questionsphotoshop = [
+      // EASY (1–10)
+      { q: "Photoshop का उपयोग किस लिए होता है?", options: ["Image Editing", "Text Editing", "Accounting", "Browsing"], answer: 0 },
+      { q: "Photoshop में नई file खोलने की shortcut key क्या है?", options: ["Ctrl + N", "Ctrl + O", "Ctrl + S", "Ctrl + P"], answer: 0 },
+      { q: "Photoshop में .psd किसका extension है?", options: ["PowerPoint", "Photoshop", "Excel", "Word"], answer: 1 },
+      { q: "Photoshop में 'Undo' की shortcut key क्या होती है?", options: ["Ctrl + Z", "Ctrl + Y", "Ctrl + X", "Ctrl + U"], answer: 0 },
+      { q: "Photoshop में Zoom Tool को activate करने की shortcut key क्या है?", options: ["Z", "Y", "L", "B"], answer: 0 },
+      { q: "Photoshop में Move Tool के लिए shortcut key क्या होती है?", options: ["V", "M", "T", "L"], answer: 0 },
+      { q: "Photoshop में Text लिखने के लिए कौन सा tool होता है?", options: ["Type Tool", "Brush Tool", "Eraser Tool", "Move Tool"], answer: 0 },
+      { q: "Photoshop में Background Layer को unlock कैसे करते हैं?", options: ["डबल क्लिक करके", "Right Click करके", "Alt दबा के", "Shift दबा के"], answer: 0 },
+      { q: "Photoshop में Rectangular Marquee Tool का उपयोग किसलिए होता है?", options: ["Selection के लिए", "Painting के लिए", "Zoom करने के लिए", "Cropping के लिए"], answer: 0 },
+      { q: "Photoshop में Crop Tool की shortcut key क्या होती है?", options: ["C", "R", "K", "V"], answer: 0 },
+
+      // MEDIUM (11–20)
+      { q: "Photoshop में Layer Panel किसके लिए होता है?", options: ["Layer management", "File open", "Zooming", "Image printing"], answer: 0 },
+      { q: "Photoshop में Opacity का उपयोग किसके लिए किया जाता है?", options: ["Layer transparency", "Brightness", "Zoom", "Sharpness"], answer: 0 },
+      { q: "Photoshop में Magic Wand Tool का उपयोग क्या करता है?", options: ["Same color selection", "Text formatting", "Layer delete", "Image save"], answer: 0 },
+      { q: "Photoshop में Image को Flip करने के लिए कौन सा menu है?", options: ["Edit > Transform", "Image > Adjustments", "Filter > Distort", "View > Flip"], answer: 0 },
+      { q: "Photoshop में Feather का उपयोग क्या करता है?", options: ["Soft edge selection", "Hard edge crop", "Zoom", "Text shadow"], answer: 0 },
+      { q: "Photoshop में Smart Object का लाभ क्या है?", options: ["Non-destructive editing", "Auto save", "Better print", "File compression"], answer: 0 },
+      { q: "Photoshop में History Panel किसके लिए होता है?", options: ["Undo steps देखने के लिए", "Zoom करने के लिए", "Resize के लिए", "Filter लगाने के लिए"], answer: 0 },
+      { q: "Photoshop में Adjustment Layer क्या करती है?", options: ["Color correction", "Resize", "Cropping", "Sharpening"], answer: 0 },
+      { q: "Photoshop में Quick Mask Mode की shortcut key क्या है?", options: ["Q", "M", "T", "S"], answer: 0 },
+      { q: "Photoshop में Spot Healing Brush Tool का उपयोग?", options: ["Pimples हटाने के लिए", "Text डालने के लिए", "File Rename के लिए", "Background हटाने के लिए"], answer: 0 },
+
+      // HARD (21–30)
+      { q: "Photoshop में Clipping Mask का कार्य क्या है?", options: ["Layer को किसी shape में limit करना", "Zoom करना", "Text जोड़ना", "File export करना"], answer: 0 },
+      { q: "Photoshop में Channels Panel का क्या उपयोग है?", options: ["Color channels को manage करना", "Image crop", "Zoom", "Save करना"], answer: 0 },
+      { q: "Photoshop में Curves का उपयोग किसके लिए होता है?", options: ["Contrast/brightness control", "File compression", "Filter हटाने के लिए", "Rotate करने के लिए"], answer: 0 },
+      { q: "Photoshop में Vanishing Point Tool का क्या काम है?", options: ["Perspective editing", "Zooming", "Layer move", "Cropping"], answer: 0 },
+      { q: "Photoshop में Puppet Warp किसके लिए उपयोग होता है?", options: ["Object bending", "Zoom in", "Layer delete", "Filter apply"], answer: 0 },
+      { q: "Photoshop में LAB color mode का लाभ क्या है?", options: ["Precise color correction", "File size घटाना", "Auto save", "Black & white conversion"], answer: 0 },
+      { q: "Photoshop में Smart Filters क्या करते हैं?", options: ["Non-destructive filters", "Permanent filters", "Zoom filters", "Shortcut filters"], answer: 0 },
+      { q: "Photoshop में High Pass Filter का उपयोग किसलिए होता है?", options: ["Sharpening image", "Blurring", "Text wrapping", "File linking"], answer: 0 },
+      { q: "Photoshop में Action Panel किस लिए होता है?", options: ["Batch automation", "Zoom sync", "Layer merge", "Color convert"], answer: 0 },
+      { q: "Photoshop में Displacement Map का उपयोग?", options: ["Texture distortion", "Zoom resetting", "Masking", "Crop protection"], answer: 0 }
+    ];
+
+    const questionsinternet = [
+      // EASY (1–10)
+      { q: "Internet का सबसे उपयोगी कार्य क्या है?", options: ["TV देखना", "खाना बनाना", "सूचना प्राप्त करना", "कपड़े पहनना"], answer: 2 },
+      { q: "Web browser का उदाहरण क्या है?", options: ["Google Chrome", "MS Word", "Excel", "Photoshop"], answer: 0 },
+      { q: "WWW का पूरा नाम क्या है?", options: ["World Wide Web", "World Web Wide", "Web World Wide", "Wide Web World"], answer: 0 },
+      { q: "E-mail का उपयोग किस लिए किया जाता है?", options: ["पढ़ाई के लिए", "मैसेज भेजने के लिए", "खेलने के लिए", "TV देखने के लिए"], answer: 1 },
+      { q: "Internet पर website खोलने के लिए क्या चाहिए?", options: ["Browser", "Scanner", "Projector", "Printer"], answer: 0 },
+      { q: "Google क्या है?", options: ["Search Engine", "Game", "Software", "Hardware"], answer: 0 },
+      { q: "Internet का अविष्कार कब हुआ?", options: ["1969", "1975", "1980", "1995"], answer: 0 },
+      { q: "Email भेजने के लिए किस site का उपयोग कर सकते हैं?", options: ["Gmail", "YouTube", "Instagram", "Amazon"], answer: 0 },
+      { q: "YouTube किसका उदाहरण है?", options: ["Search Engine", "Social Media", "Video Sharing Platform", "Browser"], answer: 2 },
+      { q: "Web page का collection क्या कहलाता है?", options: ["Book", "Website", "Server", "Folder"], answer: 1 },
+
+      // MEDIUM (11–20)
+      { q: "URL का पूरा नाम क्या है?", options: ["Uniform Resource Locator", "Universal Record List", "United Resource Line", "Uniform Result Log"], answer: 0 },
+      { q: "IP address क्या होता है?", options: ["User ID", "Unique Internet Address", "Mobile Number", "Server Name"], answer: 1 },
+      { q: "Browser का मुख्य कार्य क्या होता है?", options: ["Web pages दिखाना", "PDF बनाना", "Edit करना", "Music चलाना"], answer: 0 },
+      { q: "Internet में HTTP का पूरा नाम क्या है?", options: ["Hyper Text Transfer Protocol", "High Text Transmission Process", "Host Text Transfer Policy", "None"], answer: 0 },
+      { q: "DNS का उपयोग किस लिए होता है?", options: ["IP खोजने के लिए", "Website block करने के लिए", "Speed बढ़ाने के लिए", "Virus हटाने के लिए"], answer: 0 },
+      { q: "Blog किस लिए उपयोग होता है?", options: ["Video editing", "Online लिखने और शेयर करने के लिए", "Game खेलने के लिए", "Browsing"], answer: 1 },
+      { q: "Modem किस लिए उपयोग होता है?", options: ["Internet connect करने के लिए", "Gaming के लिए", "TV देखने के लिए", "Sound सुनने के लिए"], answer: 0 },
+      { q: "Email में CC का मतलब क्या होता है?", options: ["Carbon Copy", "Current Copy", "Central Code", "Copy Code"], answer: 0 },
+      { q: "Google Drive क्या है?", options: ["Cloud Storage", "Social Media", "Video Editing App", "Antivirus"], answer: 0 },
+      { q: "Internet में Ping command किसलिए होता है?", options: ["Connection check करने के लिए", "Music play करने के लिए", "Typing के लिए", "Folder बनाने के लिए"], answer: 0 },
+
+      // HARD (21–30)
+      { q: "Internet Protocol के कितने versions हैं?", options: ["2", "3", "4", "5"], answer: 0 }, // IPv4 & IPv6
+      { q: "HTTPS में S का अर्थ क्या होता है?", options: ["Secure", "Static", "Server", "Source"], answer: 0 },
+      { q: "Firewall का उपयोग किस लिए होता है?", options: ["Security के लिए", "Speed बढ़ाने के लिए", "Sound सुधारने के लिए", "Web hosting के लिए"], answer: 0 },
+      { q: "Static IP address क्या होता है?", options: ["Fixed address", "Changing address", "Fake address", "Proxy address"], answer: 0 },
+      { q: "VPN का पूरा नाम क्या है?", options: ["Virtual Private Network", "Verified Public Node", "Virtual Print Network", "Video Proxy Network"], answer: 0 },
+      { q: "Traceroute command का उपयोग किस लिए होता है?", options: ["Network path tracing", "Virus scan", "File compression", "Remote login"], answer: 0 },
+      { q: "Phishing attack का मुख्य उद्देश्य क्या होता है?", options: ["Data चोरी करना", "Internet slow करना", "Video delete करना", "Zoom करना"], answer: 0 },
+      { q: "Internet पर किसी website का DNS record कौन रखता है?", options: ["Name Server", "Email Server", "Print Server", "Proxy Server"], answer: 0 },
+      { q: "Cloudflare क्या सेवा प्रदान करता है?", options: ["DDoS सुरक्षा और CDN", "Antivirus", "Photo Editing", "Data Entry"], answer: 0 },
+      { q: "Tor browser का उपयोग किसलिए होता है?", options: ["Anonymous browsing", "Game खेलने", "PDF बनाने", "Video trim करने"], answer: 0 }
+    ];
+
+    const questionsmspowerpoint = [
+      // EASY (1–10)
+      { q: "PowerPoint में नई स्लाइड जोड़ने की shortcut key क्या है?", options: ["Ctrl + N", "Ctrl + M", "Ctrl + S", "Ctrl + P"], answer: 1 },
+      { q: "PowerPoint में स्लाइड शो शुरू करने के लिए कौन सी key होती है?", options: ["F1", "F5", "F9", "F11"], answer: 1 },
+      { q: "PowerPoint किस प्रकार का सॉफ़्टवेयर है?", options: ["Word Processing", "Spreadsheet", "Presentation", "Database"], answer: 2 },
+      { q: "PowerPoint में Text जोड़ने के लिए कौन सा object उपयोग होता है?", options: ["Text Box", "Image", "Chart", "Video"], answer: 0 },
+      { q: "PowerPoint file का extension क्या होता है?", options: [".pptx", ".docx", ".xlsx", ".pdf"], answer: 0 },
+      { q: "स्लाइड डिलीट करने के लिए कौन सी key उपयोग होती है?", options: ["Delete", "F5", "Enter", "Shift"], answer: 0 },
+      { q: "PowerPoint में pre-designed templates को क्या कहते हैं?", options: ["Themes", "Layouts", "Pages", "Charts"], answer: 0 },
+      { q: "PowerPoint में स्लाइड शो बंद करने की shortcut key क्या है?", options: ["Esc", "F1", "Alt", "Ctrl"], answer: 0 },
+      { q: "PowerPoint में bullets जोड़ने के लिए कौन सा tab होता है?", options: ["Home", "Insert", "Design", "Slide Show"], answer: 0 },
+      { q: "PowerPoint में diagram जोड़ने के लिए कौन सा option होता है?", options: ["SmartArt", "WordArt", "Theme", "Format"], answer: 0 },
+
+      // MEDIUM (11–20)
+      { q: "PowerPoint में Animation Tab का उपयोग किसलिए होता है?", options: ["Objects में motion जोड़ने", "Text alignment के लिए", "Image crop करने", "Slide delete करने"], answer: 0 },
+      { q: "Transition effect कहाँ से जोड़ा जाता है?", options: ["Transition tab", "Insert tab", "File tab", "View tab"], answer: 0 },
+      { q: "PowerPoint में Notes का उपयोग किसलिए होता है?", options: ["Presenter के लिए मदद", "Viewer के लिए", "Audio रिकॉर्डिंग के लिए", "Design के लिए"], answer: 0 },
+      { q: "PowerPoint में WordArt किसलिए उपयोग होता है?", options: ["Stylish text बनाने", "Image insert करने", "Graph बनाने", "Slide delete करने"], answer: 0 },
+      { q: "PowerPoint में Slide Master का कार्य क्या होता है?", options: ["Layout control", "Font color बदलना", "Chart बनाना", "Paragraph spacing"], answer: 0 },
+      { q: "PowerPoint में Chart insert करने का विकल्प किस tab में होता है?", options: ["Insert", "Design", "Animation", "File"], answer: 0 },
+      { q: "PowerPoint में Zoom In करने की shortcut key क्या है?", options: ["Ctrl + Scroll", "Alt + Enter", "Ctrl + Shift + Z", "Ctrl + Shift + X"], answer: 0 },
+      { q: "Hyperlink जोड़ने के लिए कौन सी shortcut key होती है?", options: ["Ctrl + K", "Ctrl + H", "Alt + K", "Shift + K"], answer: 0 },
+      { q: "PowerPoint में Slide Sorter View किसके लिए होता है?", options: ["Slides का overview दिखाने", "Sound insert करने", "Background change करने", "Design बनाने"], answer: 0 },
+      { q: "Slide Layout को बदलने के लिए कौन सा tab प्रयोग होता है?", options: ["Home", "Insert", "Transition", "View"], answer: 0 },
+
+      // HARD (21–30)
+      { q: "PowerPoint में Rehearse Timings का उपयोग किसके लिए होता है?", options: ["Presentation की timing set करने", "Audio edit करने", "Slide duplicate करने", "Design fix करने"], answer: 0 },
+      { q: "PowerPoint में embedded video क्या होता है?", options: ["Slide के अंदर सेव video", "Slide से लिंक किया video", "Text के ऊपर video", "Chart के साथ video"], answer: 0 },
+      { q: "PowerPoint में Handouts क्या होते हैं?", options: ["Slides के प्रिंट version", "Online templates", "Sound files", "Video sets"], answer: 0 },
+      { q: "PowerPoint में Animation Pane कहाँ से खोला जाता है?", options: ["Animations tab", "Home tab", "Insert tab", "Slide Show tab"], answer: 0 },
+      { q: "PowerPoint में Slide Number किस tab से insert किया जाता है?", options: ["Insert", "Design", "View", "Home"], answer: 0 },
+      { q: "PowerPoint में Morph Transition का उपयोग किसलिए होता है?", options: ["Smooth movement create करने", "Text highlight करने", "Sound डालने", "Chart insert करने"], answer: 0 },
+      { q: "PowerPoint में Trigger Animation का क्या मतलब है?", options: ["Click या object के साथ animation शुरू करना", "Auto-run animation", "Audio-based animation", "Loop animation"], answer: 0 },
+      { q: "PowerPoint में Master Slide बदलने के लिए कौन सा view होता है?", options: ["Slide Master View", "Normal View", "Reading View", "Zoom View"], answer: 0 },
+      { q: "PowerPoint में exported video का default format क्या होता है?", options: ["MP4", "AVI", "WMV", "MOV"], answer: 0 },
+      { q: "PowerPoint में Slide Library feature किसके लिए होता है?", options: ["Reusable slides संग्रह के लिए", "Sound sync करने", "Auto save के लिए", "Chart group बनाने"], answer: 0 }
+    ];
+
+
+    const questionsmsexcel = [
+      { n: 1, q: "MS Paint का डिफ़ॉल्ट Background Color क्या होता है?", options: ["हरा", "सफ़ेद", "लाल", "नीला"], answer: 1 },
+      { n: 2, q: "सीधी रेखा खींचने के लिए कौन सी key का उपयोग होता है?", options: ["Shift + drag", "Alt + drag", "F4 + drag", "Tab + drag"], answer: 0 },
+      { n: 3, q: "MS Paint में Fill color कहाँ होता है?", options: ["Tool बार", "Menu बार", "Format बार", "Edit बार"], answer: 0 },
+      { n: 4, q: "Paint में ribbon छिपाने की शॉर्टकट key क्या है?", options: ["Windows + F1", "Ctrl + F1", "Shift + F1", "Alt + F1"], answer: 1 },
+      { n: 5, q: "गोलाकार shape draw करने के लिए किसका उपयोग होता है?", options: ["Line", "Box", "Oval", "उपयुक्त सभी"], answer: 2 },
+      { n: 6, q: "Text tool का उपयोग किसलिए होता है?", options: ["कलर भरने के लिए", "Text लिखने के लिए", "line बनाने के लिए", "कोई नहीं"], answer: 1 },
+      { n: 7, q: "Paint में 'Save As' की शॉर्टकट key क्या है?", options: ["F11", "F12", "F5", "F9"], answer: 1 },
+      { n: 8, q: "Print preview के लिए शॉर्टकट key क्या है?", options: ["Ctrl + V", "Ctrl + O", "Ctrl + L", "Ctrl + F2"], answer: 3 },
+      { n: 9, q: "MS Paint किस operating system में होता है?", options: ["Linux", "Unix", "DOS", "Windows"], answer: 3 },
+      { n: 10, q: "shape में color भरने के लिए कौन सा tool use होता है?", options: ["Format tool", "Pencil tool", "Text tool", "Fill tool"], answer: 3 },
+      { n: 11, q: "MS Paint क्या है?", options: ["Software", "Operating system", "File", "Drive"], answer: 0 },
+      { n: 12, q: "Paint का उपयोग किसलिए होता है?", options: ["Document बनाने के लिए", "Sheet बनाने के लिए", "Resume के लिए", "Drawing के लिए"], answer: 3 },
+      { n: 13, q: "Cut करने की शॉर्टकट key क्या है?", options: ["Ctrl + A", "Ctrl + B", "Ctrl + X", "कोई नहीं"], answer: 2 },
+      { n: 14, q: "Paint से exit करने के लिए किस key का उपयोग होता है?", options: ["Ctrl + A", "Ctrl + F4", "Shift + F4", "Alt + F4"], answer: 3 },
+      { n: 15, q: "Paint में कितने प्रकार के ब्रश मिलते हैं?", options: ["8", "9", "7", " "], answer: 1 },
+      { n: 16, q: "Paint open करने के लिए run dialog में क्या लिखते हैं?", options: ["paint", "Painting", "MS Paint", "None"], answer: 0 },
+      { n: 17, q: "Select, crop, resize और rotate कहाँ होते हैं?", options: ["Image", "Tool", "Shape", "Color"], answer: 0 },
+      { n: 18, q: "Tool bar में इनमें से कौन नहीं होता?", options: ["Fill color", "Pencil", "Text", "Crop"], answer: 3 },
+      { n: 19, q: "Resize करने की शॉर्टकट key क्या है?", options: ["Ctrl + W", "Ctrl + R", "Ctrl + T", "Ctrl + O"], answer: 0 },
+      { n: 20, q: "Paint में zoom in की max limit क्या है?", options: ["300%", "200%", "800%", "500%"], answer: 2 },
+      { n: 21, q: "Zoom out की minimum limit क्या है?", options: ["10%", "11%", "12.5%", "15%"], answer: 2 },
+      { n: 22, q: "रूलर show करने के लिए किस Tab का उपयोग करते हैं?", options: ["Home tab", "File tab", "Format tab", "View tab"], answer: 3 },
+      { n: 23, q: "Paint में सबसे ऊपर कौन सा bar होता है?", options: ["Menu bar", "Tool bar", "Status bar", "Title bar"], answer: 3 },
+      { n: 24, q: "रूलर enable करने की शॉर्टकट key क्या है?", options: ["Ctrl + F2", "Ctrl + Z", "Ctrl + R", "Ctrl + A"], answer: 2 },
+      { n: 25, q: "Paint में copy करने की शॉर्टकट key क्या है?", options: ["Ctrl + A", "Ctrl + X", "Ctrl + C", "Ctrl + Y"], answer: 2 },
+      { n: 26, q: "MS Paint में Undo करने की शॉर्टकट key क्या है?", options: ["Ctrl + Y", "Ctrl + Z", "Ctrl + U", "Ctrl + X"], answer: 1 },
+      { n: 27, q: "Paint में किसी image को flip करने का विकल्प कहाँ होता है?", options: ["Home Tab", "View Tab", "File Tab", "Image Tab"], answer: 0 },
+      { n: 28, q: "MS Paint में Eraser tool का उपयोग क्या करता है?", options: ["Text मिटाने के लिए", "Color बदलने के लिए", "Drawing मिटाने के लिए", "Zoom करने के लिए"], answer: 2 },
+      { n: 29, q: "Paint में 'Select All' करने के लिए कौन सी शॉर्टकट key होती है?", options: ["Ctrl + A", "Ctrl + S", "Ctrl + Shift + A", "Ctrl + D"], answer: 0 },
+      { n: 30, q: "MS Paint में Zoom tool का icon कैसा होता है?", options: ["Brush", "A अक्षर", "आंख", "Magnifying glass"], answer: 3 }
+    ];
+
+
+    const questionsmsword = [
+      { q: "MS Word खोलने के लिए Run Dialog Box में क्या लिखना पड़ता है?", options: ["Photoshop", "MS word", "winword", "microsoft word"], answer: 2 },
+      { q: "MS Word क्या है?", options: ["Word editing software", "Image editing software", "Video editing software", "कोई नहीं"], answer: 0 },
+      { q: "MS Word में किसी शब्द को खोजने के लिए क्या उपयोग करते हैं?", options: ["Find", "Replace", "Go to", "Left Indent"], answer: 0 },
+      { q: "Save की हुई फाइल को दोबारा सेव करने के लिए क्या उपयोग करते हैं?", options: ["Save", "Save as", "Open", "Print"], answer: 0 },
+      { q: "Bold करने की shortcut key क्या है?", options: ["Ctrl + Shift + B", "Ctrl + B", "Shift + B", "Ctrl + P"], answer: 1 },
+      { q: "MS Word में File Menu कौन-कौन से विकल्प होते हैं?", options: ["New", "Save", "Print", "उपरोक्त सभी"], answer: 3 },
+      { q: "MS Word में default page size क्या होता है?", options: ["Legal", "A4", "Letter", "Tabloid"], answer: 1 },
+      { q: "MS Word में Page Orientation के कितने प्रकार होते हैं?", options: ["1", "2", "3", "4"], answer: 1 },
+      { q: "MS Word में Header/Footer किसके लिए होता है?", options: ["Page number", "Date", "Title", "सभी"], answer: 3 },
+      { q: "MS Word में Red underline का क्या मतलब होता है?", options: ["Spelling mistake", "Grammar mistake", "Format issue", "Hyperlink"], answer: 0 },
+      { q: "MS Word में Ctrl + N किसके लिए उपयोग किया जाता है?", options: ["New document", "Open document", "Close document", "Save document"], answer: 0 },
+      { q: "MS Word में Bullets and Numbering कहाँ होता है?", options: ["Insert tab", "Home tab", "Review tab", "Layout tab"], answer: 1 },
+      { q: "MS Word में text को italic बनाने की shortcut key क्या है?", options: ["Ctrl + I", "Ctrl + L", "Ctrl + T", "Ctrl + E"], answer: 0 },
+      { q: "MS Word में Table insert करने का विकल्प कहाँ होता है?", options: ["Insert tab", "Layout tab", "Design tab", "Home tab"], answer: 0 },
+      { q: "MS Word में किसी शब्द को Cut करने की shortcut key क्या है?", options: ["Ctrl + C", "Ctrl + X", "Ctrl + V", "Ctrl + Z"], answer: 1 },
+      { q: "MS Word में Line spacing का कार्य क्या है?", options: ["Text को Bold करता है", "Text के बीच space देता है", "Font बदलता है", "Page जोड़ता है"], answer: 1 },
+      { q: "MS Word में Grammar mistake कौन से रंग से दिखती है?", options: ["Blue", "Red", "Green", "Yellow"], answer: 2 },
+      { q: "MS Word में Ctrl + P से क्या होता है?", options: ["Print window open होती है", "Paste होता है", "Page add होता है", "Font बदलता है"], answer: 0 },
+      { q: "MS Word में Undo की shortcut key क्या है?", options: ["Ctrl + Y", "Ctrl + U", "Ctrl + Z", "Ctrl + C"], answer: 2 },
+      { q: "MS Word में Redo की shortcut key क्या है?", options: ["Ctrl + Y", "Ctrl + R", "Ctrl + E", "Ctrl + B"], answer: 0 },
+      { q: "MS Word में Font size change करने का विकल्प कहाँ होता है?", options: ["Insert tab", "Home tab", "Design tab", "View tab"], answer: 1 },
+      { q: "MS Word में Copy की shortcut key क्या है?", options: ["Ctrl + V", "Ctrl + C", "Ctrl + X", "Ctrl + Z"], answer: 1 },
+      { q: "MS Word में Paste की shortcut key क्या है?", options: ["Ctrl + C", "Ctrl + X", "Ctrl + V", "Ctrl + Z"], answer: 2 },
+      { q: "MS Word में Page break insert करने की shortcut key क्या है?", options: ["Ctrl + Enter", "Shift + Enter", "Alt + Enter", "Ctrl + Shift + Enter"], answer: 0 },
+      { q: "MS Word में Document को Save करने की shortcut key क्या है?", options: ["Ctrl + S", "Ctrl + P", "Ctrl + A", "Ctrl + B"], answer: 0 },
+      { q: "MS Word में Document को Print करने की shortcut key क्या है?", options: ["Ctrl + S", "Ctrl + P", "Ctrl + D", "Ctrl + R"], answer: 1 },
+      { q: "MS Word में Alignment बदलने की shortcut key क्या है?", options: ["Ctrl + L", "Ctrl + R", "Ctrl + E", "सभी"], answer: 3 },
+      { q: "MS Word में Find का कार्य क्या है?", options: ["Text बदलना", "Text हटाना", "Text खोजना", "Text paste करना"], answer: 2 },
+      { q: "MS Word में Zoom level कहाँ से बदला जाता है?", options: ["Status bar", "Title bar", "Menu bar", "Tool bar"], answer: 0 }
+    ];
+
+
+    function startExam(subject) {
       const name = document.getElementById('sName').value.trim();
       const father = document.getElementById('sFather').value.trim();
       const mother = document.getElementById('sMother').value.trim();
@@ -453,67 +701,456 @@
         date: new Date().toLocaleDateString()
       };
 
-      showPage('exam');
+      if (subject === "word") {
+        currentSubject = "MS WORD";
+        currentQuestions = questionsmsword;
+        loadQuestions(currentQuestions, "questionsContainermsword");
+        showPage("msword");
+      } else if (subject === "excel") {
+        currentSubject = "MS EXCEL";
+        currentQuestions = questionsmsexcel;
+        loadQuestions(currentQuestions, "questionsContainermsexcel");
+        showPage("msexcel");
+      } else if (subject === "paint") {
+        currentSubject = "MS PAINT";
+        currentQuestions = questionsmspaint;
+        loadQuestions(currentQuestions, "questionsContainermspaint");
+        showPage("mspaint");
+      } else if (subject === "powerpoint") {
+        currentSubject = "MS POWERPOINT";
+        currentQuestions = questionsmspowerpoint;
+        loadQuestions(currentQuestions, "questionsContainerpowerpoint");
+        showPage("mspowerpoint");
+      } else if (subject === "internet") {
+        currentSubject = "INTERNET";
+        currentQuestions = questionsinternet;
+        loadQuestions(currentQuestions, "questionsContainerinternet");
+        showPage("internet");
+      } else if (subject === "photoshop") {
+        currentSubject = "PHOTOSHOP";
+        currentQuestions = questionsphotoshop;
+        loadQuestions(currentQuestions, "questionsContainerphotoshop");
+        showPage("photoshop");
+      } else if (subject === "tally") {
+        currentSubject = "TALLY";
+        currentQuestions = questionstally;
+        loadQuestions(currentQuestions, "questionsContainertally");
+        showPage("tally");
+      } else if (subject === "final") {
+        currentSubject = "FINAL EXAM";
+        currentQuestions = questionsfinal;
+        loadQuestions(currentQuestions, "questionsContainerfinal");
+        showPage("final");
+      }
+
       startTimer();
     }
 
-    function downloadResult() {
-      const resultContent = document.getElementById("examResult").innerHTML;
-      const blob = new Blob([resultContent], { type: 'text/html' });
-      const link = document.createElement('a');
+
+
+    // ✅ MS EXCEL form submit
+    document.getElementById("excelForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      let score = 0;
+      questionsmsexcel.forEach((q, idx) => {
+        const selected = document.querySelector(`#questionsContainermsexcel input[name='q${idx}']:checked`);
+        if (selected && parseInt(selected.value) === q.answer) score++;
+      });
+
+      const result = document.getElementById("examResult_excel");
+      result.classList.remove("hidden");
+      document.getElementById("downloadBtn_excel").classList.remove("hidden");
+
+      const percentage = ((score / questionsmsexcel.length) * 100).toFixed(2);
+      const pass = score >= 3;
+
+      if (pass) {
+        result.innerHTML = `
+        <div style="border: 3px double #444; padding: 15px; font-family: serif;">
+          <h2 style="text-align:center; color: green;">NATIONAL ACADEMY OF COMPUTER</h2>
+          <p style="text-align:center;"><strong>BAKHARI BAZAR DEORIA (U.P.)</strong><br>Mob: 9161653032</p>
+          <h3 style="text-align:center; color: darkblue;">EXAM RESULT</h3>
+          <p><strong>Name:</strong> ${studentData.name}</p>
+          <p><strong>Father's Name:</strong> ${studentData.father}</p>
+          <p><strong>Mother's Name:</strong> ${studentData.mother}</p>
+          <p><strong>Course:</strong> ${studentData.course}</p>
+          <p><strong>Date:</strong> ${studentData.date}</p>
+          <p><strong>Subject:</strong> MS EXCEL</p>
+          <p><strong>Total Questions:</strong> ${questionsmsexcel.length}</p>
+          <p><strong>Correct Answers:</strong> ${score}</p>
+          <p><strong>Wrong Answers:</strong> ${questionsmsexcel.length - score}</p>
+          <p><strong>Percentage:</strong> ${percentage}%</p>
+          <p style="color: brown;">This is a system generated result. No signature required.</p>
+        </div>`;
+      } else {
+        result.innerHTML = `<p style="color: red;"><strong>Fail</strong> - You scored ${score}/${questionsmsexcel.length} (${percentage}%)</p>`;
+      }
+    });
+
+    function downloadResultExcel() {
+      const content = document.getElementById("examResult_excel").innerHTML;
+      const blob = new Blob([content], { type: "text/html" });
+      const link = document.createElement("a");
       link.href = URL.createObjectURL(blob);
-      link.download = 'Exam_Result.html';
+      link.download = `${studentData.name}_Excel_Result.html`;
+      link.click();
+    }
+
+    // ✅ MS WORD form submit
+    document.getElementById("wordForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      let score = 0;
+      questionsmsword.forEach((q, idx) => {
+        const selected = document.querySelector(`#questionsContainermsword input[name='q${idx}']:checked`);
+        if (selected && parseInt(selected.value) === q.answer) score++;
+      });
+
+      const result = document.getElementById("examResult_word");
+      result.classList.remove("hidden");
+      document.getElementById("downloadBtn_word").classList.remove("hidden");
+
+      const percentage = ((score / questionsmsword.length) * 100).toFixed(2);
+      const pass = score >= 3;
+
+      if (pass) {
+        result.innerHTML = `
+        <div style="border: 3px double #444; padding: 15px; font-family: serif;">
+          <h2 style="text-align:center; color: green;">NATIONAL ACADEMY OF COMPUTER</h2>
+          <p style="text-align:center;"><strong>BAKHARI BAZAR DEORIA (U.P.)</strong><br>Mob: 9161653032</p>
+          <h3 style="text-align:center; color: darkblue;">EXAM RESULT</h3>
+          <p><strong>Name:</strong> ${studentData.name}</p>
+          <p><strong>Father's Name:</strong> ${studentData.father}</p>
+          <p><strong>Mother's Name:</strong> ${studentData.mother}</p>
+          <p><strong>Course:</strong> ${studentData.course}</p>
+          <p><strong>Date:</strong> ${studentData.date}</p>
+          <p><strong>Subject:</strong> MS WORD</p>
+          <p><strong>Total Questions:</strong> ${questionsmsword.length}</p>
+          <p><strong>Correct Answers:</strong> ${score}</p>
+          <p><strong>Wrong Answers:</strong> ${questionsmsword.length - score}</p>
+          <p><strong>Percentage:</strong> ${percentage}%</p>
+          <p style="color: brown;">This is a system generated result. No signature required.</p>
+        </div>`;
+      } else {
+        result.innerHTML = `<p style="color: red;"><strong>Fail</strong> - You scored ${score}/${questionsmsword.length} (${percentage}%)</p>`;
+      }
+    });
+
+    function downloadResultWord() {
+      const content = document.getElementById("examResult_word").innerHTML;
+      const blob = new Blob([content], { type: "text/html" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `${studentData.name}_Word_Result.html`;
       link.click();
     }
 
 
-    document.getElementById("examForm").addEventListener("submit", function (e) {
+
+    document.getElementById("paintForm").addEventListener("submit", function (e) {
       e.preventDefault();
 
       let score = 0;
-      questions.forEach((q, idx) => {
-        const selected = document.querySelector(`input[name='q${idx}']:checked`);
+      questionsmspaint.forEach((q, idx) => {
+        const selected = document.querySelector(`#questionsContainermspaint input[name='q${idx}']:checked`);
         if (selected && parseInt(selected.value) === q.answer) score++;
       });
 
-      const result = document.getElementById("examResult");
+      const result = document.getElementById("examResult_paint");
       result.classList.remove("hidden");
-      document.getElementById("downloadBtn").classList.remove("hidden");
+      document.getElementById("downloadBtn_paint").classList.remove("hidden");
 
-      const percentage = ((score / questions.length) * 100).toFixed(2);
-      const pass = score >= 10;
+      const percentage = ((score / questionsmspaint.length) * 100).toFixed(2);
+      const pass = score >= 3;
 
       if (pass) {
         result.innerHTML = `
-      <div id="resultCard" style="border: 4px double #003366; padding: 20px; font-family: Georgia; line-height: 1.6;">
-        <h1 style="text-align: center; color: maroon;">NATIONAL ACADEMY OF COMPUTER</h1>
-        <p style="color: #003366; text-align: center; "><strong>ADD. BAKHARI BAZAR DEORIA (U.P.) 274702</strong></p>
-        <p style="text-align: right;"><strong>MOB. 9161653032</strong></p>
-        <h3 style="text-align: center; color: goldenrod;">EXAM RESULT</h3>
-        <p><strong>Student’s Name:</strong> ${studentData.name}</p>
-        <p><strong>Father’s Name:</strong> ${studentData.father}</p>
-        <p><strong>Mother’s Name:</strong> ${studentData.mother}</p>
+      <div style="border: 3px double #444; padding: 15px; font-family: serif;">
+        <h2 style="text-align:center; color: green;">NATIONAL ACADEMY OF COMPUTER</h2>
+        <p style="text-align:center;"><strong>BAKHARI BAZAR DEORIA (U.P.)</strong><br>Mob: 9161653032</p>
+        <h3 style="text-align:center; color: darkblue;">EXAM RESULT</h3>
+        <p><strong>Name:</strong> ${studentData.name}</p>
+        <p><strong>Father's Name:</strong> ${studentData.father}</p>
+        <p><strong>Mother's Name:</strong> ${studentData.mother}</p>
         <p><strong>Course:</strong> ${studentData.course}</p>
         <p><strong>Date:</strong> ${studentData.date}</p>
-        <p><strong>Subject:</strong> MS WORD</p>
-        <p><strong>Total Marks:</strong> ${questions.length}</p>
-        <p><strong>Write Answer:</strong> ${score}</p>
-        <p><strong>Wrong Answer:</strong> ${questions.length - score}</p>
+        <p><strong>Subject:</strong> MS PAINT</p>
+        <p><strong>Total Questions:</strong> ${questionsmspaint.length}</p>
+        <p><strong>Correct Answers:</strong> ${score}</p>
+        <p><strong>Wrong Answers:</strong> ${questionsmspaint.length - score}</p>
         <p><strong>Percentage:</strong> ${percentage}%</p>
-        <p style="color: brown;">This is system generated result no need any signature.</p>
-       
+        <p style="color: brown;">This is a system generated result. No signature required.</p>
       </div>`;
-        // <button class="btn" onclick="downloadResult()">Download Result</button>
       } else {
-        result.innerHTML = `<p style="color: red;"><strong>Fail</strong> - You scored ${score}/${questions.length} (${percentage}%)</p>`;
+        result.innerHTML = `<p style="color: red;"><strong>Fail</strong> - You scored ${score}/${questionsmspaint.length} (${percentage}%)</p>`;
       }
     });
 
+    function downloadResultPaint() {
+      const content = document.getElementById("examResult_paint").innerHTML;
+      const blob = new Blob([content], { type: "text/html" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `${studentData.name}_Paint_Result.html`;
+      link.click();
+    }
+
+
+    document.getElementById("powerpointForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      let score = 0;
+      questionsmspowerpoint.forEach((q, idx) => {
+        const selected = document.querySelector(`#questionsContainerpowerpoint input[name='q${idx}']:checked`);
+        if (selected && parseInt(selected.value) === q.answer) score++;
+      });
+
+      const result = document.getElementById("examResult_powerpoint");
+      result.classList.remove("hidden");
+      document.getElementById("downloadBtn_powerpoint").classList.remove("hidden");
+
+      const percentage = ((score / questionsmspowerpoint.length) * 100).toFixed(2);
+      const pass = score >= 3;
+
+      if (pass) {
+        result.innerHTML = `
+    <div style="border: 3px double #444; padding: 15px; font-family: serif;">
+      <h2 style="text-align:center; color: green;">NATIONAL ACADEMY OF COMPUTER</h2>
+      <p style="text-align:center;"><strong>BAKHARI BAZAR DEORIA (U.P.)</strong><br>Mob: 9161653032</p>
+      <h3 style="text-align:center; color: darkblue;">EXAM RESULT</h3>
+      <p><strong>Name:</strong> ${studentData.name}</p>
+      <p><strong>Father's Name:</strong> ${studentData.father}</p>
+      <p><strong>Mother's Name:</strong> ${studentData.mother}</p>
+      <p><strong>Course:</strong> ${studentData.course}</p>
+      <p><strong>Date:</strong> ${studentData.date}</p>
+      <p><strong>Subject:</strong> MS POWERPOINT</p>
+      <p><strong>Total Questions:</strong> ${questionsmspowerpoint.length}</p>
+      <p><strong>Correct Answers:</strong> ${score}</p>
+      <p><strong>Wrong Answers:</strong> ${questionsmspowerpoint.length - score}</p>
+      <p><strong>Percentage:</strong> ${percentage}%</p>
+      <p style="color: brown;">This is a system generated result. No signature required.</p>
+    </div>`;
+      } else {
+        result.innerHTML = `<p style="color: red;"><strong>Fail</strong> - You scored ${score}/${questionsmspowerpoint.length} (${percentage}%)</p>`;
+      }
+    });
+
+
+    function downloadResultPowerpoint() {
+      const content = document.getElementById("examResult_powerpoint").innerHTML;
+      const blob = new Blob([content], { type: "text/html" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `${studentData.name}_PowerPoint_Result.html`;
+      link.click();
+    }
+
+
+
+    document.getElementById("internetForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      let score = 0;
+      questionsinternet.forEach((q, idx) => {
+        const selected = document.querySelector(`#questionsContainerinternet input[name='q${idx}']:checked`);
+        if (selected && parseInt(selected.value) === q.answer) score++;
+      });
+
+      const result = document.getElementById("examResult_internet");
+      result.classList.remove("hidden");
+      document.getElementById("downloadBtn_internet").classList.remove("hidden");
+
+      const percentage = ((score / questionsinternet.length) * 100).toFixed(2);
+      const pass = score >= 3;
+
+      if (pass) {
+        result.innerHTML = `
+    <div style="border: 3px double #444; padding: 15px; font-family: serif;">
+      <h2 style="text-align:center; color: green;">NATIONAL ACADEMY OF COMPUTER</h2>
+      <p style="text-align:center;"><strong>BAKHARI BAZAR DEORIA (U.P.)</strong><br>Mob: 9161653032</p>
+      <h3 style="text-align:center; color: darkblue;">EXAM RESULT</h3>
+      <p><strong>Name:</strong> ${studentData.name}</p>
+      <p><strong>Father's Name:</strong> ${studentData.father}</p>
+      <p><strong>Mother's Name:</strong> ${studentData.mother}</p>
+      <p><strong>Course:</strong> ${studentData.course}</p>
+      <p><strong>Date:</strong> ${studentData.date}</p>
+      <p><strong>Subject:</strong> INTERNET</p>
+      <p><strong>Total Questions:</strong> ${questionsinternet.length}</p>
+      <p><strong>Correct Answers:</strong> ${score}</p>
+      <p><strong>Wrong Answers:</strong> ${questionsinternet.length - score}</p>
+      <p><strong>Percentage:</strong> ${percentage}%</p>
+      <p style="color: brown;">This is a system generated result. No signature required.</p>
+    </div>`;
+      } else {
+        result.innerHTML = `<p style="color: red;"><strong>Fail</strong> - You scored ${score}/${questionsinternet.length} (${percentage}%)</p>`;
+      }
+    });
+
+
+    function downloadResultInternet() {
+      const content = document.getElementById("examResult_internet").innerHTML;
+      const blob = new Blob([content], { type: "text/html" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `${studentData.name}_Internet_Result.html`;
+      link.click();
+    }
+
+
+    document.getElementById("photoshopForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      let score = 0;
+      questionsphotoshop.forEach((q, idx) => {
+        const selected = document.querySelector(`#questionsContainerphotoshop input[name='q${idx}']:checked`);
+        if (selected && parseInt(selected.value) === q.answer) score++;
+      });
+
+      const result = document.getElementById("examResult_photoshop");
+      result.classList.remove("hidden");
+      document.getElementById("downloadBtn_photoshop").classList.remove("hidden");
+
+      const percentage = ((score / questionsphotoshop.length) * 100).toFixed(2);
+      const pass = score >= 3;
+
+      if (pass) {
+        result.innerHTML = `
+    <div style="border: 3px double #444; padding: 15px; font-family: serif;">
+      <h2 style="text-align:center; color: green;">NATIONAL ACADEMY OF COMPUTER</h2>
+      <p style="text-align:center;"><strong>BAKHARI BAZAR DEORIA (U.P.)</strong><br>Mob: 9161653032</p>
+      <h3 style="text-align:center; color: darkblue;">EXAM RESULT</h3>
+      <p><strong>Name:</strong> ${studentData.name}</p>
+      <p><strong>Father's Name:</strong> ${studentData.father}</p>
+      <p><strong>Mother's Name:</strong> ${studentData.mother}</p>
+      <p><strong>Course:</strong> ${studentData.course}</p>
+      <p><strong>Date:</strong> ${studentData.date}</p>
+      <p><strong>Subject:</strong> PHOTOSHOP</p>
+      <p><strong>Total Questions:</strong> ${questionsphotoshop.length}</p>
+      <p><strong>Correct Answers:</strong> ${score}</p>
+      <p><strong>Wrong Answers:</strong> ${questionsphotoshop.length - score}</p>
+      <p><strong>Percentage:</strong> ${percentage}%</p>
+      <p style="color: brown;">This is a system generated result. No signature required.</p>
+    </div>`;
+      } else {
+        result.innerHTML = `<p style="color: red;"><strong>Fail</strong> - You scored ${score}/${questionsphotoshop.length} (${percentage}%)</p>`;
+      }
+    });
+
+
+    function downloadResultPhotoshop() {
+      const content = document.getElementById("examResult_photoshop").innerHTML;
+      const blob = new Blob([content], { type: "text/html" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `${studentData.name}_Photoshop_Result.html`;
+      link.click();
+    }
+
+
+    document.getElementById("tallyForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      let score = 0;
+      questionstally.forEach((q, idx) => {
+        const selected = document.querySelector(`#questionsContainertally input[name='q${idx}']:checked`);
+        if (selected && parseInt(selected.value) === q.answer) score++;
+      });
+
+      const result = document.getElementById("examResult_tally");
+      result.classList.remove("hidden");
+      document.getElementById("downloadBtn_tally").classList.remove("hidden");
+
+      const percentage = ((score / questionstally.length) * 100).toFixed(2);
+      const pass = score >= 3;
+
+      if (pass) {
+        result.innerHTML = `
+    <div style="border: 3px double #444; padding: 15px; font-family: serif;">
+      <h2 style="text-align:center; color: green;">NATIONAL ACADEMY OF COMPUTER</h2>
+      <p style="text-align:center;"><strong>BAKHARI BAZAR DEORIA (U.P.)</strong><br>Mob: 9161653032</p>
+      <h3 style="text-align:center; color: darkblue;">EXAM RESULT</h3>
+      <p><strong>Name:</strong> ${studentData.name}</p>
+      <p><strong>Father's Name:</strong> ${studentData.father}</p>
+      <p><strong>Mother's Name:</strong> ${studentData.mother}</p>
+      <p><strong>Course:</strong> ${studentData.course}</p>
+      <p><strong>Date:</strong> ${studentData.date}</p>
+      <p><strong>Subject:</strong> TALLY</p>
+      <p><strong>Total Questions:</strong> ${questionstally.length}</p>
+      <p><strong>Correct Answers:</strong> ${score}</p>
+      <p><strong>Wrong Answers:</strong> ${questionstally.length - score}</p>
+      <p><strong>Percentage:</strong> ${percentage}%</p>
+      <p style="color: brown;">This is a system generated result. No signature required.</p>
+    </div>`;
+      } else {
+        result.innerHTML = `<p style="color: red;"><strong>Fail</strong> - You scored ${score}/${questionstally.length} (${percentage}%)</p>`;
+      }
+    });
+
+
+    function downloadResultTally() {
+      const content = document.getElementById("examResult_tally").innerHTML;
+      const blob = new Blob([content], { type: "text/html" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `${studentData.name}_Tally_Result.html`;
+      link.click();
+    }
+
+    document.getElementById("finalForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      let score = 0;
+      questionsfinal.forEach((q, idx) => {
+        const selected = document.querySelector(`#questionsContainerfinal input[name='q${idx}']:checked`);
+        if (selected && parseInt(selected.value) === q.answer) score++;
+      });
+
+      const result = document.getElementById("examResult_final");
+      result.classList.remove("hidden");
+      document.getElementById("downloadBtn_final").classList.remove("hidden");
+
+      const percentage = ((score / questionsfinal.length) * 100).toFixed(2);
+      const pass = score >= 3;
+
+      if (pass) {
+        result.innerHTML = `
+    <div style="border: 3px double #444; padding: 15px; font-family: serif;">
+      <h2 style="text-align:center; color: green;">NATIONAL ACADEMY OF COMPUTER</h2>
+      <p style="text-align:center;"><strong>BAKHARI BAZAR DEORIA (U.P.)</strong><br>Mob: 9161653032</p>
+      <h3 style="text-align:center; color: darkblue;">EXAM RESULT</h3>
+      <p><strong>Name:</strong> ${studentData.name}</p>
+      <p><strong>Father's Name:</strong> ${studentData.father}</p>
+      <p><strong>Mother's Name:</strong> ${studentData.mother}</p>
+      <p><strong>Course:</strong> ${studentData.course}</p>
+      <p><strong>Date:</strong> ${studentData.date}</p>
+      <p><strong>Subject:</strong> FINAL EXAM</p>
+      <p><strong>Total Questions:</strong> ${questionsfinal.length}</p>
+      <p><strong>Correct Answers:</strong> ${score}</p>
+      <p><strong>Wrong Answers:</strong> ${questionsfinal.length - score}</p>
+      <p><strong>Percentage:</strong> ${percentage}%</p>
+      <p style="color: brown;">This is a system generated result. No signature required.</p>
+    </div>`;
+      } else {
+        result.innerHTML = `<p style="color: red;"><strong>Fail</strong> - You scored ${score}/${questionsfinal.length} (${percentage}%)</p>`;
+      }
+    });
+
+
+    function downloadResultFinal() {
+      const content = document.getElementById("examResult_final").innerHTML;
+      const blob = new Blob([content], { type: "text/html" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `${studentData.name}_Final_Result.html`;
+      link.click();
+    }
+
+
     window.onload = function () {
-      loadQuestions();
+      // loadQuestions();
       showPage('about');
     };
-
 
   </script>
 
