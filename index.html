@@ -98,10 +98,9 @@
 
     </div>
   </section>
-
   <section id="mspowerpoint" class="hidden">
     <h2>MS PowerPoint</h2>
-    <p><strong>Time Left:</strong> <span id="timer">30:00</span></p>
+    <p><strong>Time Left:</strong><span class="timer">30:00</span> </p>
     <form id="powerpointForm">
       <div id="questionsContainerpowerpoint" class="card"></div>
       <button type="submit" class="btn">Submit Exam</button>
@@ -112,18 +111,20 @@
 
   <section id="internet" class="hidden">
     <h2>Internet</h2>
-    <p><strong>Time Left:</strong> <span id="timer">30:00</span></p>
+    <p><strong>Time Left:</strong> <span id="timer_internet">30:00</span></p>
+
     <form id="internetForm">
       <div id="questionsContainerinternet" class="card"></div>
       <button type="submit" class="btn">Submit Exam</button>
     </form>
+
     <div id="examResult_internet" class="hidden card"></div>
     <button id="downloadBtn_internet" class="btn hidden" onclick="downloadResultInternet()">Download Result</button>
   </section>
 
   <section id="photoshop" class="hidden">
     <h2>Photoshop</h2>
-    <p><strong>Time Left:</strong> <span id="timer">30:00</span></p>
+    <p><strong>Time Left:</strong> <span id="timer_photoshop">30:00</span></p>
     <form id="photoshopForm">
       <div id="questionsContainerphotoshop" class="card"></div>
       <button type="submit" class="btn">Submit Exam</button>
@@ -134,7 +135,7 @@
 
   <section id="tally" class="hidden">
     <h2>Tally</h2>
-    <p><strong>Time Left:</strong> <span id="timer">30:00</span></p>
+    <p><strong>Time Left:</strong> <span id="timer_tally">30:00</span></p>
     <form id="tallyForm">
       <div id="questionsContainertally" class="card"></div>
       <button type="submit" class="btn">Submit Exam</button>
@@ -146,7 +147,7 @@
 
   <section id="final" class="hidden">
     <h2>Final Exam</h2>
-    <p><strong>Time Left:</strong> <span id="timer">30:00</span></p>
+    <p><strong>Time Left:</strong> <span id="timer_final">30:00</span></p>
     <form id="finalForm">
       <div id="questionsContainerfinal" class="card"></div>
       <button type="submit" class="btn">Submit Exam</button>
@@ -159,7 +160,7 @@
 
   <section id="mspaint" class="hidden">
     <h2>MS Paint</h2>
-    <p><strong>Time Left:</strong> <span id="timer">30:00</span></p>
+    <p><strong>Time Left:</strong> <span id="timer_mspaint">30:00</span></p>
 
     <form id="paintForm">
       <div id="questionsContainermspaint" class="card"></div>
@@ -176,7 +177,7 @@
 
   <section id="msexcel" class="hidden">
     <h2>MS Excel</h2>
-    <p><strong>Time Left:</strong> <span id="timer">30:00</span></p>
+    <p><strong>Time Left:</strong> <span id="timer_msword" class="timer">30:00</span></p>
 
     <form id="excelForm">
       <div id="questionsContainermsexcel" class="card"></div>
@@ -195,7 +196,7 @@
 
   <section id="msword" class="hidden">
     <h2>MS Word</h2>
-    <p><strong>Time Left:</strong> <span id="timer">30:00</span></p>
+    <p><strong>Time Left:</strong> <span class="timer">30:00</span></p>
 
     <form id="wordForm">
       <div id="questionsContainermsword" class="card"></div>
@@ -205,7 +206,6 @@
     <div id="examResult_word" class="hidden card" style="margin-top: 20px;"></div>
     <button id="downloadBtn_word" class="btn hidden" onclick="downloadResultWord()">Download Result</button>
   </section>
-
 
 
   <script>
@@ -339,11 +339,21 @@
       }
     }
 
-    let timerDuration = 30 * 60; // 30 minutes in seconds
+    let timerDuration;
     let timerInterval;
 
-    function startTimer() {
-      const timerDisplay = document.getElementById('timer');
+    function startTimer(sectionId, formId) {
+      timerDuration = 30 * 60; // 30 minutes
+      clearInterval(timerInterval); // reset previous timer
+
+      const section = document.getElementById(sectionId);
+
+      // Try .timer class first, fallback to id="timer_<sectionId>"
+      const timerDisplay = section.querySelector(".timer") || document.getElementById(`timer_${sectionId}`);
+      if (!timerDisplay) return;
+
+      timerDisplay.textContent = "30:00";
+
       timerInterval = setInterval(() => {
         const minutes = Math.floor(timerDuration / 60);
         const seconds = timerDuration % 60;
@@ -353,33 +363,39 @@
         if (timerDuration < 0) {
           clearInterval(timerInterval);
           alert("⏰ Time is over! Submitting exam...");
-          document.getElementById("examForm").requestSubmit();
+          const form = document.getElementById(formId);
+          if (form) form.requestSubmit();
         }
       }, 1000);
     }
 
 
-    function showPage(id) {
+    function showPage(sectionId) {
+      // Hide all sections first
       document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
 
-      // Start timer if exam page is opened
-      if (id === "mspaint") {
-        timerDuration = 30 * 60;
-        startTimer();
+      // Show current one
+      const target = document.getElementById(sectionId);
+      if (target) target.classList.add('active');
+
+      // Map section IDs to form IDs
+      const formMap = {
+        word: "wordForm",
+        paint: "paintForm",
+        excel: "excelForm",
+        powerpoint: "powerpointForm",
+        internet: "internetForm",
+        tally: "tallyForm",
+        photoshop: "photoshopForm",
+        final: "finalForm"
+      };
+
+      // Start timer if subject found
+      if (formMap[sectionId]) {
+        startTimer(sectionId, formMap[sectionId]);
       }
     }
 
-    function showPage(id) {
-      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-
-      // Start timer if exam page is opened
-      if (id === "exam") {
-        timerDuration = 30 * 60;
-        startTimer();
-      }
-    }
 
     function downloadResult() {
       const resultContent = document.getElementById("examResult").innerHTML;
@@ -683,7 +699,6 @@
       { q: "MS Word में Zoom level कहाँ से बदला जाता है?", options: ["Status bar", "Title bar", "Menu bar", "Tool bar"], answer: 0 }
     ];
 
-
     function startExam(subject) {
       const name = document.getElementById('sName').value.trim();
       const father = document.getElementById('sFather').value.trim();
@@ -703,49 +718,69 @@
         date: new Date().toLocaleDateString()
       };
 
+      const formMap = {
+        word: "wordForm",
+        excel: "excelForm",
+        paint: "paintForm",
+        powerpoint: "powerpointForm",
+        internet: "internetForm",
+        photoshop: "photoshopForm",
+        tally: "tallyForm",
+        final: "finalForm"
+      };
+
+      const sectionMap = {
+        word: "msword",
+        excel: "msexcel",
+        paint: "mspaint",
+        powerpoint: "mspowerpoint",
+        internet: "internet",
+        photoshop: "photoshop",
+        tally: "tally",
+        final: "final"
+      };
+
       if (subject === "word") {
         currentSubject = "MS WORD";
         currentQuestions = questionsmsword;
         loadQuestions(currentQuestions, "questionsContainermsword");
-        showPage("msword");
       } else if (subject === "excel") {
         currentSubject = "MS EXCEL";
         currentQuestions = questionsmsexcel;
         loadQuestions(currentQuestions, "questionsContainermsexcel");
-        showPage("msexcel");
       } else if (subject === "paint") {
         currentSubject = "MS PAINT";
         currentQuestions = questionsmspaint;
         loadQuestions(currentQuestions, "questionsContainermspaint");
-        showPage("mspaint");
       } else if (subject === "powerpoint") {
         currentSubject = "MS POWERPOINT";
         currentQuestions = questionsmspowerpoint;
         loadQuestions(currentQuestions, "questionsContainerpowerpoint");
-        showPage("mspowerpoint");
       } else if (subject === "internet") {
         currentSubject = "INTERNET";
         currentQuestions = questionsinternet;
         loadQuestions(currentQuestions, "questionsContainerinternet");
-        showPage("internet");
       } else if (subject === "photoshop") {
         currentSubject = "PHOTOSHOP";
         currentQuestions = questionsphotoshop;
         loadQuestions(currentQuestions, "questionsContainerphotoshop");
-        showPage("photoshop");
       } else if (subject === "tally") {
         currentSubject = "TALLY";
         currentQuestions = questionstally;
         loadQuestions(currentQuestions, "questionsContainertally");
-        showPage("tally");
       } else if (subject === "final") {
         currentSubject = "FINAL EXAM";
         currentQuestions = questionsfinal;
         loadQuestions(currentQuestions, "questionsContainerfinal");
-        showPage("final");
       }
 
-      startTimer();
+      const sectionId = sectionMap[subject];
+      const formId = formMap[subject];
+
+      if (sectionId && formId) {
+        showPage(sectionId);
+        startTimer(sectionId, formId);
+      }
     }
 
 
